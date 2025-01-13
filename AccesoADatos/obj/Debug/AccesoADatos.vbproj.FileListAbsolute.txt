@@ -1,0 +1,66 @@
+C:\Users\Aita\Downloads\RETO1\AccesoADatos\bin\Debug\AccesoADatos.exe.config
+C:\Users\Aita\Downloads\RETO1\AccesoADatos\bin\Debug\AccesoADatos.exe
+C:\Users\Aita\Downloads\RETO1\AccesoADatos\bin\Debug\AccesoADatos.pdb
+C:\Users\Aita\Downloads\RETO1\AccesoADatos\bin\Debug\AccesoADatos.xml
+C:\Users\Aita\Downloads\RETO1\AccesoADatos\obj\Debug\AccesoADatos.vbproj.AssemblyReference.cache
+C:\Users\Aita\Downloads\RETO1\AccesoADatos\obj\Debug\AccesoADatos.Resources.resources
+C:\Users\Aita\Downloads\RETO1\AccesoADatos\obj\Debug\AccesoADatos.vbproj.GenerateResource.cache
+C:\Users\Aita\Downloads\RETO1\AccesoADatos\obj\Debug\AccesoADatos.vbproj.CoreCompileInputs.cache
+C:\Users\Aita\Downloads\RETO1\AccesoADatos\obj\Debug\AccesoADatos.exe
+C:\Users\Aita\Downloads\RETO1\AccesoADatos\obj\Debug\AccesoADatos.xml
+C:\Users\Aita\Downloads\RETO1\AccesoADatos\obj\Debug\AccesoADatos.pdb
+C:\Users\Aita\Downloads\RETO1\AccesoADatos\obj\Debug\AccesoADatos.Login.resources
+C:\Users\Aita\Downloads\RETO1\AccesoADatos\obj\Debug\AccesoADatos.AdminPanel.resources
+C:\Users\Aita\Downloads\RETO1\AccesoADatos\obj\Debug\AccesoADatos.TPVApp.resources
+C:\Users\Aita\Downloads\RETO1\AccesoADatos\obj\Debug\AccesoADatos.CRUDEmpleados.resources
+D:\GitHubDam3\RETODAM3-2--RETO1\AccesoADatos\bin\Debug\AccesoADatos.exe.config
+D:\GitHubDam3\RETODAM3-2--RETO1\AccesoADatos\bin\Debug\AccesoADatos.exe
+D:\GitHubDam3\RETODAM3-2--RETO1\AccesoADatos\bin\Debug\AccesoADatos.pdb
+D:\GitHubDam3\RETODAM3-2--RETO1\AccesoADatos\bin\Debug\AccesoADatos.xml
+D:\GitHubDam3\RETODAM3-2--RETO1\AccesoADatos\obj\Debug\AccesoADatos.vbproj.AssemblyReference.cache
+D:\GitHubDam3\RETODAM3-2--RETO1\AccesoADatos\obj\Debug\AccesoADatos.AdminPanel.resources
+D:\GitHubDam3\RETODAM3-2--RETO1\AccesoADatos\obj\Debug\AccesoADatos.CRUDEmpleados.resources
+D:\GitHubDam3\RETODAM3-2--RETO1\AccesoADatos\obj\Debug\AccesoADatos.Login.resources
+D:\GitHubDam3\RETODAM3-2--RETO1\AccesoADatos\obj\Debug\AccesoADatos.Resources.resources
+D:\GitHubDam3\RETODAM3-2--RETO1\AccesoADatos\obj\Debug\AccesoADatos.TPVApp.resources
+D:\GitHubDam3\RETODAM3-2--RETO1\AccesoADatos\obj\Debug\AccesoADatos.vbproj.GenerateResource.cache
+D:\GitHubDam3\RETODAM3-2--RETO1\AccesoADatos\obj\Debug\AccesoADatos.vbproj.CoreCompileInputs.cache
+D:\GitHubDam3\RETODAM3-2--RETO1\AccesoADatos\obj\Debug\AccesoADatos.exe
+D:\GitHubDam3\RETODAM3-2--RETO1\AccesoADatos\obj\Debug\AccesoADatos.xml
+D:\GitHubDam3\RETODAM3-2--RETO1\AccesoADatos\obj\Debug\AccesoADatos.pdb
+D:\GitHubDam3\RETODAM3-2--RETO1\AccesoADatos\obj\Debug\AccesoADatos.UpdateEmpleado.resources
+D:\GitHubDam3\RETODAM3-2--RETO1\AccesoADatos\obj\Debug\AccesoADatos.AddEmpleado.resources
+C:\Users\Aita\Downloads\GitHub\REAL RETO 1\RETODAM3-2--RETO1\AccesoADatos\bin\Debug\AccesoADatos.exe.config
+C:\Users\Aita\Downloads\GitHub\REAL RETO 1\RETODAM3-2--RETO1\AccesoADatos\bin\Debug\AccesoADatos.exe
+C:\Users\Aita\Downloads\GitHub\REAL RETO 1\RETODAM3-2--RETO1\AccesoADatos\bin\Debug\AccesoADatos.pdb
+C:\Users\Aita\Downloads\GitHub\REAL RETO 1\RETODAM3-2--RETO1\AccesoADatos\bin\Debug\AccesoADatos.xml
+C:\Users\Aita\Downloads\GitHub\REAL RETO 1\RETODAM3-2--RETO1\AccesoADatos\obj\Debug\AccesoADatos.vbproj.AssemblyReference.cache
+C:\Users\Aita\Downloads\GitHub\REAL RETO 1\RETODAM3-2--RETO1\AccesoADatos\obj\Debug\AccesoADatos.AddEmpleado.resources
+C:\Users\Aita\Downloads\GitHub\REAL RETO 1\RETODAM3-2--RETO1\AccesoADatos\obj\Debug\AccesoADatos.AdminPanel.resources
+C:\Users\Aita\Downloads\GitHub\REAL RETO 1\RETODAM3-2--RETO1\AccesoADatos\obj\Debug\AccesoADatos.CRUDEmpleados.resources
+C:\Users\Aita\Downloads\GitHub\REAL RETO 1\RETODAM3-2--RETO1\AccesoADatos\obj\Debug\AccesoADatos.Login.resources
+C:\Users\Aita\Downloads\GitHub\REAL RETO 1\RETODAM3-2--RETO1\AccesoADatos\obj\Debug\AccesoADatos.Resources.resources
+C:\Users\Aita\Downloads\GitHub\REAL RETO 1\RETODAM3-2--RETO1\AccesoADatos\obj\Debug\AccesoADatos.TPVApp.resources
+C:\Users\Aita\Downloads\GitHub\REAL RETO 1\RETODAM3-2--RETO1\AccesoADatos\obj\Debug\AccesoADatos.UpdateEmpleado.resources
+C:\Users\Aita\Downloads\GitHub\REAL RETO 1\RETODAM3-2--RETO1\AccesoADatos\obj\Debug\AccesoADatos.vbproj.GenerateResource.cache
+C:\Users\Aita\Downloads\GitHub\REAL RETO 1\RETODAM3-2--RETO1\AccesoADatos\obj\Debug\AccesoADatos.vbproj.CoreCompileInputs.cache
+C:\Users\Aita\Downloads\GitHub\REAL RETO 1\RETODAM3-2--RETO1\AccesoADatos\obj\Debug\AccesoADatos.exe
+C:\Users\Aita\Downloads\GitHub\REAL RETO 1\RETODAM3-2--RETO1\AccesoADatos\obj\Debug\AccesoADatos.xml
+C:\Users\Aita\Downloads\GitHub\REAL RETO 1\RETODAM3-2--RETO1\AccesoADatos\obj\Debug\AccesoADatos.pdb
+C:\Users\Aita\Downloads\GitHub\REAL RETO 1\RETODAM3-2--RETO1\AccesoADatos\obj\Debug\AccesoADatos.CRUDArticulos.resources
+C:\Users\Aita\Downloads\GitHub\REAL RETO 1\RETODAM3-2--RETO1\AccesoADatos\obj\Debug\AccesoADatos.AddArticulo.resources
+C:\Users\Aita\Downloads\GitHub\REAL RETO 1\RETODAM3-2--RETO1\AccesoADatos\obj\Debug\AccesoADatos.UpdateArticulo.resources
+D:\GitHubDam3\RETODAM3-2--RETO1\AccesoADatos\obj\Debug\AccesoADatos.AddArticulo.resources
+D:\GitHubDam3\RETODAM3-2--RETO1\AccesoADatos\obj\Debug\AccesoADatos.CRUDArticulos.resources
+D:\GitHubDam3\RETODAM3-2--RETO1\AccesoADatos\obj\Debug\AccesoADatos.UpdateArticulo.resources
+C:\Users\Aita\Downloads\GitHub\REAL RETO 1\RETODAM3-2--RETO1\AccesoADatos\obj\Debug\AccesoADatos.Comandas.resources
+C:\Users\Aita\Downloads\GitHub\REAL RETO 1\RETODAM3-2--RETO1\AccesoADatos\obj\Debug\AccesoADatos.ComandaItem.resources
+C:\Users\Aita\Downloads\GitHub\REAL RETO 1\RETODAM3-2--RETO1\AccesoADatos\obj\Debug\AccesoADatos.Modals.resources
+C:\Users\Aita\Downloads\GitHub\REAL RETO 1\RETODAM3-2--RETO1\AccesoADatos\obj\Debug\AccesoADatos.FatalError.resources
+C:\Users\Aita\Downloads\GitHub\REAL RETO 1\RETODAM3-2--RETO1\AccesoADatos\obj\Debug\AccesoADatos.Info.resources
+C:\Users\Aita\Downloads\GitHub\REAL RETO 1\RETODAM3-2--RETO1\AccesoADatos\obj\Debug\AccesoADatos.Warning.resources
+D:\GitHubDam3\RETODAM3-2--RETO1\AccesoADatos\obj\Debug\AccesoADatos.ComandaItem.resources
+D:\GitHubDam3\RETODAM3-2--RETO1\AccesoADatos\obj\Debug\AccesoADatos.Comandas.resources
+D:\GitHubDam3\RETODAM3-2--RETO1\AccesoADatos\obj\Debug\AccesoADatos.FatalError.resources
+D:\GitHubDam3\RETODAM3-2--RETO1\AccesoADatos\obj\Debug\AccesoADatos.Info.resources
+D:\GitHubDam3\RETODAM3-2--RETO1\AccesoADatos\obj\Debug\AccesoADatos.Modals.resources
