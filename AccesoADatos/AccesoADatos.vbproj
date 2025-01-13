@@ -63,6 +63,9 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -181,6 +184,12 @@
     <Compile Include="RETODataSet.vb">
       <DependentUpon>RETODataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="TerrazaClima.Designer.vb">
+      <DependentUpon>TerrazaClima.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TerrazaClima.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="TPVApp.Designer.vb">
       <DependentUpon>TPVApp.vb</DependentUpon>
     </Compile>
@@ -240,6 +249,9 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="TerrazaClima.resx">
+      <DependentUpon>TerrazaClima.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TPVApp.resx">
       <DependentUpon>TPVApp.vb</DependentUpon>
     </EmbeddedResource>
@@ -261,6 +273,7 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="packages.config" />
     <None Include="RETODataSet.xsc">
       <DependentUpon>RETODataSet.xsd</DependentUpon>
     </None>

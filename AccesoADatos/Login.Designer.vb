@@ -25,6 +25,7 @@ Partial Class Login
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Login))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.btnModalCustomShow = New System.Windows.Forms.Button()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.btnShowPedidos = New System.Windows.Forms.Button()
@@ -35,7 +36,7 @@ Partial Class Login
         Me.txtPassword = New System.Windows.Forms.TextBox()
         Me.txtUser = New System.Windows.Forms.TextBox()
         Me.btnLogin = New System.Windows.Forms.Button()
-        Me.btnModalCustomShow = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -55,6 +56,7 @@ Partial Class Login
         'Panel2
         '
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel2.Controls.Add(Me.Button3)
         Me.Panel2.Controls.Add(Me.btnModalCustomShow)
         Me.Panel2.Controls.Add(Me.PictureBox2)
         Me.Panel2.Controls.Add(Me.PictureBox4)
@@ -72,6 +74,16 @@ Partial Class Login
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(1264, 681)
         Me.Panel2.TabIndex = 0
+        '
+        'btnModalCustomShow
+        '
+        Me.btnModalCustomShow.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnModalCustomShow.Location = New System.Drawing.Point(439, 601)
+        Me.btnModalCustomShow.Name = "btnModalCustomShow"
+        Me.btnModalCustomShow.Size = New System.Drawing.Size(382, 82)
+        Me.btnModalCustomShow.TabIndex = 37
+        Me.btnModalCustomShow.Text = "MODALS"
+        Me.btnModalCustomShow.UseVisualStyleBackColor = True
         '
         'PictureBox2
         '
@@ -172,15 +184,15 @@ Partial Class Login
         Me.btnLogin.Text = "INICIAR SESIÓN"
         Me.btnLogin.UseVisualStyleBackColor = True
         '
-        'btnModalCustomShow
+        'Button3
         '
-        Me.btnModalCustomShow.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnModalCustomShow.Location = New System.Drawing.Point(439, 601)
-        Me.btnModalCustomShow.Name = "btnModalCustomShow"
-        Me.btnModalCustomShow.Size = New System.Drawing.Size(382, 82)
-        Me.btnModalCustomShow.TabIndex = 37
-        Me.btnModalCustomShow.Text = "MODALS"
-        Me.btnModalCustomShow.UseVisualStyleBackColor = True
+        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.Location = New System.Drawing.Point(-1, 378)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(198, 51)
+        Me.Button3.TabIndex = 38
+        Me.Button3.Text = "WEATHER"
+        Me.Button3.UseVisualStyleBackColor = True
         '
         'Login
         '
@@ -216,4 +228,5 @@ Partial Class Login
     Friend WithEvents PictureBox4 As PictureBox
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents btnModalCustomShow As Button
+    Friend WithEvents Button3 As Button
 End Class
