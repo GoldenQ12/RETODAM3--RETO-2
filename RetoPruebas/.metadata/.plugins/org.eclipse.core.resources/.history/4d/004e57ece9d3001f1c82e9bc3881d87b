@@ -1,0 +1,90 @@
+import com.dropbox.core.DbxAppInfo;
+import com.dropbox.core.DbxAuthFinish;
+import com.dropbox.core.DbxException;
+import com.dropbox.core.DbxRequestConfig;
+import com.dropbox.core.DbxWebAuthNoRedirect;
+import com.dropbox.core.v2.DbxClientV2;
+import com.dropbox.core.v2.files.FileMetadata;
+import com.dropbox.core.v2.files.ListFolderResult;
+import com.dropbox.core.v2.files.Metadata;
+
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.List;
+
+public class Dropbox {
+    private static final String APP_KEY = "ulc3ur1w0e1v58g"; // Replace with your app key
+    private static final String APP_SECRET = "63nrywvxyfkpb6u"; // Replace with your app secret
+    private DbxClientV2 client;
+
+    public Dropbox() throws IOException {
+        authenticate();
+        listFiles(client, APP_KEY);
+    }
+
+    private void authenticate() throws IOException {
+        DbxAppInfo appInfo = new DbxAppInfo(APP_KEY, APP_SECRET);
+        DbxRequestConfig config = DbxRequestConfig.newBuilder("dropbox/java-tutorial").build();
+        DbxWebAuthNoRedirect webAuth = new DbxWebAuthNoRedirect(config, appInfo);
+
+        String authorizeUrl = webAuth.start();
+        System.out.println("1. Go to: " + authorizeUrl);
+        System.out.println("2. Click 'Allow' and copy the authorization code.");
+        
+        
+        
+        try {
+        	
+            DbxAuthFinish authFinish = webAuth.finish("zxUq6-s7HNgAAAAAAAAAId2HXEe1a5FCDmlqDdXeFBU");
+            String accessToken = authFinish.getAccessToken();
+            System.out.println("Successfully authenticated! Access Token: " + accessToken);
+        } catch (DbxException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void uploadFile(String localFilePath, String dropboxPath) {
+        try (FileInputStream inputStream = new FileInputStream(localFilePath)) {
+            FileMetadata metadata = client.files().uploadBuilder(dropboxPath)
+                    .uploadAndFinish(inputStream);
+            System.out.println("Uploaded: " + metadata.getName());
+        } catch (DbxException | IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public static void listFiles(DbxClientV2 client, String path) {
+        try {
+            ListFolderResult result = client.files().listFolder(path);
+            List<Metadata> entries = result.getEntries();
+
+            // Loop through the files and print their names
+            for (Metadata metadata : entries) {
+                if (metadata instanceof FileMetadata) {
+                    FileMetadata fileMetadata = (FileMetadata) metadata;
+                    System.out.println("File: " + fileMetadata.getName());
+                }
+            }
+
+            // Check if there are more files to list
+            while (result.getHasMore()) {
+                result = client.files().listFolderContinue(result.getCursor());
+                entries = result.getEntries();
+                for (Metadata metadata : entries) {
+                    if (metadata instanceof FileMetadata) {
+                        FileMetadata fileMetadata = (FileMetadata) metadata;
+                        System.out.println("File: " + fileMetadata.getName());
+                    }
+                }
+            }
+        } catch (DbxException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public DbxClientV2 getClient() {
+        return client;
+    }
+}

@@ -1,6 +1,8 @@
-﻿Imports System.IO
+﻿Imports System.Data.SqlClient
+Imports System.IO
 Imports System.Net
 Imports System.Net.Http
+Imports System.Xml
 Imports Newtonsoft.Json
 Imports Newtonsoft.Json.Linq
 
@@ -31,6 +33,35 @@ Public Class TerrazaClima
         End Try
 
     End Function
+
+    Public Sub XmlToSQL()
+        ' Path to the XML file
+        Dim xmlFilePath As String = "C:\Users\golde\Downloads\Github\RETODAM3--RETO-2\AccesoADatos\bin\Debug\weather_data.xml"
+
+        Dim xmlContent As String = File.ReadAllText(xmlFilePath)
+
+        ' Connection string to your SQL Server database
+        Dim connectionString As String = "Server=PC-ALEXANDER;Database=Reto;user=user;Password=root;"
+
+        Dim insertQuery As String = "INSERT INTO weather (_XML) VALUES(@XML)"
+        ' Create a new XmlDocument
+        Using connection As New SqlConnection(connectionString)
+            connection.Open()
+
+
+
+            ' Prepare the SQL insert command
+            Using command As New SqlCommand(insertQuery, connection)
+                ' Add the XML content as a parameter
+                command.Parameters.AddWithValue("@XML", xmlContent)
+
+                ' Execute the insert command
+                command.ExecuteNonQuery()
+            End Using
+        End Using
+
+        Console.WriteLine("Data inserted successfully.")
+    End Sub
 
 
 
@@ -82,6 +113,7 @@ Public Class TerrazaClima
         LoadMap(city)
         Dim apiURL As String = $"https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lng}&current=temperature_2m,apparent_temperature&hourly=temperature_2m,rain,snowfall&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=GMT&forecast_days=1"
         Dim task = GetWeatherData(apiURL)
+        XmlToSQL()
         MsgBox("Datos generados correctamente")
     End Sub
 End Class

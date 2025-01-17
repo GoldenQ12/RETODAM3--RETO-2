@@ -1,0 +1,13 @@
+import java.io.IOException;
+
+import com.dropbox.core.DbxRequestConfig;
+import com.dropbox.core.v2.DbxClientV2;
+
+public class Test {
+
+	public static void main(String[] args) {
+		Dropbox dropbox = new Dropbox();
+
+	}
+
+}

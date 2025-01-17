@@ -1,0 +1,7 @@
+INDEX VERSION 1.134+C:\Users\golde\Downloads\Github\RETODAM3--RETO-2\RetoPruebas\.metadata\.plugins\org.eclipse.jdt.core
+3058042674.index
+3479625749.index
+2936788897.index
+2732398980.index
+1865797976.index
+1466962464.index

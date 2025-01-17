@@ -1,0 +1,58 @@
+import com.dropbox.core.DbxAppInfo;
+import com.dropbox.core.DbxAuthFinish;
+import com.dropbox.core.DbxException;
+import com.dropbox.core.DbxRequestConfig;
+import com.dropbox.core.DbxWebAuthNoRedirect;
+import com.dropbox.core.v2.DbxClientV2;
+import com.dropbox.core.v2.files.FileMetadata;
+
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Drop {
+    private static final String APP_KEY = "YOUR_APP_KEY"; // Replace with your app key
+    private static final String APP_SECRET = "YOUR_APP_SECRET"; // Replace with your app secret
+    private DbxClientV2 client;
+
+    public DropboxAuth() throws IOException {
+        authenticate();
+    }
+
+    private void authenticate() throws IOException {
+        DbxAppInfo appInfo = new DbxAppInfo(APP_KEY, APP_SECRET);
+        DbxRequestConfig config = DbxRequestConfig.newBuilder("dropbox/java-tutorial").build();
+        DbxWebAuthNoRedirect webAuth = new DbxWebAuthNoRedirect(config, appInfo);
+
+        String authorizeUrl = webAuth.start();
+        System.out.println("1. Go to: " + authorizeUrl);
+        System.out.println("2. Click 'Allow' and copy the authorization code.");
+
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        String authCode = reader.readLine().trim();
+
+        try {
+            DbxAuthFinish authFinish = webAuth.finish(authCode);
+            String accessToken = authFinish.getAccessToken();
+            client = new DbxClientV2(config, accessToken);
+            System.out.println("Successfully authenticated!");
+        } catch (DbxException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void uploadFile(String localFilePath, String dropboxPath) {
+        try (FileInputStream inputStream = new FileInputStream(localFilePath)) {
+            FileMetadata metadata = client.files().uploadBuilder(dropboxPath)
+                    .uploadAndFinish(inputStream);
+            System.out.println("Uploaded: " + metadata.getName());
+        } catch (DbxException | IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public DbxClientV2 getClient() {
+        return client;
+    }
+}
