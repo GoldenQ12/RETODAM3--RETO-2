@@ -1,0 +1,307 @@
+package vistas;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.FlowLayout;
+
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
+import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
+import modeloDAO.empleadosDAO;
+import modeloDTO.empleadosDTO;
+
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
+import javax.swing.DefaultComboBoxModel;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+
+public class consulta_empleados extends JDialog {
+
+	private static final long serialVersionUID = 1L;
+	private final JPanel contentPanel = new JPanel();
+	private JTable table;
+	private JTextField txtbuscar;
+	private static empleadosDAO emple = new empleadosDAO();
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		try {
+			consulta_empleados dialog = new consulta_empleados();
+			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Create the dialog.
+	 */
+	public consulta_empleados() {
+		setModal(true);
+		setResizable(false);
+		setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+		setBounds(100, 100, 999, 473);
+		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPanel.setBackground(new Color(249, 220, 92));
+		getContentPane().add(contentPanel, BorderLayout.CENTER);
+		contentPanel.setLayout(null);
+		{
+			JPanel buttonPane = new JPanel();
+			buttonPane.setBounds(0, 395, 985, 41);
+			contentPanel.add(buttonPane);
+			buttonPane.setBackground(new Color(249, 220, 92));
+			buttonPane.setLayout(null);
+			{
+				JButton cancelButton = new JButton("Cerrar");
+				cancelButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						dispose();
+					}
+				});
+				cancelButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
+				cancelButton.setActionCommand("Cancel");
+				cancelButton.setBounds(874, 0, 84, 33);
+				buttonPane.add(cancelButton);
+			}
+		}
+		{
+			JLabel lblModificarDeEmpleados = new JLabel("CONSULTAR EMPLEADOS");
+			lblModificarDeEmpleados.setHorizontalAlignment(SwingConstants.CENTER);
+			lblModificarDeEmpleados.setFont(new Font("Tahoma", Font.PLAIN, 24));
+			lblModificarDeEmpleados.setBounds(298, 10, 398, 73);
+			contentPanel.add(lblModificarDeEmpleados);
+		}
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 128, 965, 249);
+		contentPanel.add(scrollPane);
+		
+		table = new JTable();
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"Nombre", "Apellido/s", "Email", "Teléfono", "Cargo", "Fecha", "Estado", "Contraseña"
+			}
+		));
+		scrollPane.setViewportView(table);
+		{
+			JLabel lblNewLabel = new JLabel("Ordenar por:");
+			lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
+			lblNewLabel.setBounds(147, 85, 94, 25);
+			contentPanel.add(lblNewLabel);
+		}
+		
+		JComboBox cbOrdenar = new JComboBox();
+		cbOrdenar.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 14));
+		cbOrdenar.setModel(new DefaultComboBoxModel(new String[] {"Nombre ⬆️", "Nombre ⬇️", "Cargo ⬆️", "Cargo ⬇️", "Estado ⬆️", "Estado ⬇️"}));
+		cbOrdenar.setBounds(250, 85, 169, 25);
+		cbOrdenar.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		        String seleccion = (String) cbOrdenar.getSelectedItem();
+		        String campo = "";
+		        String orden = "";
+
+		        switch (seleccion) {
+		            case "Nombre ⬆️":
+		                campo = "nombre";
+		                orden = "ASC";
+		                break;
+		            case "Nombre ⬇️":
+		                campo = "nombre";
+		                orden = "DESC";
+		                break;
+		            case "Cargo ⬆️":
+		                campo = "cargo";
+		                orden = "ASC";
+		                break;
+		            case "Cargo ⬇️":
+		                campo = "cargo";
+		                orden = "DESC";
+		                break;
+		            case "Estado ⬆️":
+		                campo = "estado";
+		                orden = "ASC";
+		                break;
+		            case "Estado ⬇️":
+		                campo = "estado";
+		                orden = "DESC";
+		                break;
+		        }
+
+		        cargarDatosOrdenados(campo, orden);
+		    }
+		});
+
+		contentPanel.add(cbOrdenar);
+		
+		txtbuscar = new JTextField();
+		txtbuscar.setBounds(482, 82, 214, 35);
+		txtbuscar.setColumns(10);
+
+		// Placeholder: "Buscar por nombre"
+		txtbuscar.setText("Buscar por nombre");
+		txtbuscar.setForeground(Color.GRAY);
+
+		// Listener para manejar el comportamiento del placeholder
+		txtbuscar.addFocusListener(new FocusAdapter() {
+		    @Override
+		    public void focusGained(FocusEvent e) {
+		        if (txtbuscar.getText().equals("Buscar por nombre")) {
+		            txtbuscar.setText("");
+		            txtbuscar.setForeground(Color.BLACK);
+		        }
+		    }
+
+		    @Override
+		    public void focusLost(FocusEvent e) {
+		        if (txtbuscar.getText().isEmpty()) {
+		            txtbuscar.setText("Buscar por nombre");
+		            txtbuscar.setForeground(Color.GRAY);
+		        }
+		    }
+		});
+		contentPanel.add(txtbuscar);
+
+		txtbuscar.setColumns(10);
+		
+		JButton btnBuscar = new JButton("Buscar");
+		btnBuscar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+		        String textoBuscar = txtbuscar.getText().trim();
+		        String opcion = "Nombre";
+		        String campo = "";
+
+		        if (textoBuscar.isEmpty()) {
+		            JOptionPane.showMessageDialog(null, "Por favor, ingrese un texto para buscar.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+		            return;
+		        }
+
+		        switch (opcion) {
+		            case "Nombre":
+		                campo = "nombre";
+		                break;
+		            case "Cargo":
+		                campo = "cargo";
+		                break;
+		            default:
+		                JOptionPane.showMessageDialog(null, "Opción no válida.", "Error", JOptionPane.ERROR_MESSAGE);
+		                return;
+		        }
+
+		        cargarDatosFiltrados(campo, textoBuscar);
+		    }
+		});
+		btnBuscar.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnBuscar.setActionCommand("Cancel");
+		btnBuscar.setBounds(719, 81, 84, 33);
+		contentPanel.add(btnBuscar);
+		
+		cargarDatosEnTabla();
+	}
+	private void cargarDatosEnTabla() {
+        DefaultTableModel modelo = (DefaultTableModel) table.getModel();
+        modelo.setRowCount(0); 
+        
+        List<empleadosDTO> empleados = emple.listarTodos();
+        for (empleadosDTO empleado : empleados) {
+            modelo.addRow(new Object[] {
+            	empleado.getNombre(),
+            	empleado.getApellidos(),
+            	empleado.getEmail(),
+            	empleado.getTelefono(),
+            	empleado.getCargo(),
+            	empleado.getFechaAlta(),
+            	empleado.getEstado(),
+            	empleado.getPassword(),
+            });
+        }
+    }
+	private void cargarDatosOrdenados(String campo, String orden) {
+	    DefaultTableModel modelo = (DefaultTableModel) table.getModel();
+	    int rowCount = modelo.getRowCount();
+
+	    // Extraer las filas actuales de la tabla
+	    List<Object[]> filas = new ArrayList<>();
+	    for (int i = 0; i < rowCount; i++) {
+	        Object[] fila = new Object[modelo.getColumnCount()];
+	        for (int j = 0; j < modelo.getColumnCount(); j++) {
+	            fila[j] = modelo.getValueAt(i, j);
+	        }
+	        filas.add(fila);
+	    }
+
+	    final int columna;
+	    switch (campo) {
+	        case "nombre":
+	            columna = 0; // Columna "Nombre"
+	            break;
+	        case "cargo":
+	            columna = 4; // Columna "Cargo"
+	            break;
+	        case "estado":
+	            columna = 6; // Columna "Estado"
+	            break;
+	        default:
+	            columna = -1; // Si no hay un caso válido
+	    }
+
+	    if (columna != -1) {
+	        filas.sort((a, b) -> {
+	            Comparable valorA = (Comparable) a[columna];
+	            Comparable valorB = (Comparable) b[columna];
+	            return "ASC".equals(orden) ? valorA.compareTo(valorB) : valorB.compareTo(valorA);
+	        });
+	    }
+
+	    // Limpiar el modelo y volver a cargar los datos ordenados
+	    modelo.setRowCount(0);
+	    for (Object[] fila : filas) {
+	        modelo.addRow(fila);
+	    }
+	}
+
+	private void cargarDatosFiltrados(String campo, String valor) {
+	    DefaultTableModel modelo = (DefaultTableModel) table.getModel();
+	    modelo.setRowCount(0);
+
+	    List<empleadosDTO> empleados = emple.buscarPorCriterio(campo, valor);
+	    
+	    if (empleados.isEmpty()) {
+	        JOptionPane.showMessageDialog(null, "No se encontraron resultados para la búsqueda.", "Información", JOptionPane.INFORMATION_MESSAGE);
+	        return;
+	    }
+
+	    for (empleadosDTO empleado : empleados) {
+	        modelo.addRow(new Object[] {
+	            empleado.getNombre(),
+	            empleado.getApellidos(),
+	            empleado.getEmail(),
+	            empleado.getTelefono(),
+	            empleado.getCargo(),
+	            empleado.getFechaAlta(),
+	            empleado.getEstado(),
+	            empleado.getPassword(),
+	        });
+	    }
+	}
+
+}
