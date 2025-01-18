@@ -9,8 +9,6 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import modeloDAO.TiempoMunicipio;
-
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -121,17 +119,6 @@ public class gestionEmpleados extends JDialog {
 			btnConsultarEmpleados.setFont(new Font("Tahoma", Font.PLAIN, 15));
 			btnConsultarEmpleados.setBounds(512, 264, 189, 45);
 			contentPanel.add(btnConsultarEmpleados);
-			
-			TiempoMunicipio tiempo = new TiempoMunicipio(48,48020);
-			tiempo.cargarDatos();
-			
-			{
-				JLabel lblTiempo = new JLabel(tiempo.getEstadoCielo());
-				lblTiempo.setFont(new Font("Tahoma", Font.PLAIN, 18));
-				lblTiempo.setHorizontalAlignment(SwingConstants.CENTER);
-				lblTiempo.setBounds(121, 337, 580, 38);
-				contentPanel.add(lblTiempo);
-			}
 		}
 		
 		JButton btnConsultarFichajes = new JButton("Consultar fichajes");
@@ -144,5 +131,10 @@ public class gestionEmpleados extends JDialog {
 		btnConsultarFichajes.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnConsultarFichajes.setBounds(316, 202, 189, 45);
 		contentPanel.add(btnConsultarFichajes);
+		
+		JButton btnModificarempleados = new JButton("Modificar empleados");
+		btnModificarempleados.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnModificarempleados.setBounds(316, 331, 189, 45);
+		contentPanel.add(btnModificarempleados);
 	}
 }
