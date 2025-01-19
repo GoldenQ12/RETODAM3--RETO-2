@@ -25,18 +25,14 @@ Partial Class Login
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Login))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.btnModalCustomShow = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
-        Me.btnShowPedidos = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.ckPasswordChar = New System.Windows.Forms.CheckBox()
         Me.txtPassword = New System.Windows.Forms.TextBox()
         Me.txtUser = New System.Windows.Forms.TextBox()
         Me.btnLogin = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -57,12 +53,8 @@ Partial Class Login
         '
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel2.Controls.Add(Me.Button3)
-        Me.Panel2.Controls.Add(Me.btnModalCustomShow)
         Me.Panel2.Controls.Add(Me.PictureBox2)
         Me.Panel2.Controls.Add(Me.PictureBox4)
-        Me.Panel2.Controls.Add(Me.btnShowPedidos)
-        Me.Panel2.Controls.Add(Me.Button2)
-        Me.Panel2.Controls.Add(Me.Button1)
         Me.Panel2.Controls.Add(Me.PictureBox1)
         Me.Panel2.Controls.Add(Me.ckPasswordChar)
         Me.Panel2.Controls.Add(Me.txtPassword)
@@ -75,15 +67,15 @@ Partial Class Login
         Me.Panel2.Size = New System.Drawing.Size(1264, 681)
         Me.Panel2.TabIndex = 0
         '
-        'btnModalCustomShow
+        'Button3
         '
-        Me.btnModalCustomShow.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnModalCustomShow.Location = New System.Drawing.Point(439, 601)
-        Me.btnModalCustomShow.Name = "btnModalCustomShow"
-        Me.btnModalCustomShow.Size = New System.Drawing.Size(382, 82)
-        Me.btnModalCustomShow.TabIndex = 37
-        Me.btnModalCustomShow.Text = "MODALS"
-        Me.btnModalCustomShow.UseVisualStyleBackColor = True
+        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 26.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.Location = New System.Drawing.Point(-1, 366)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(434, 220)
+        Me.Button3.TabIndex = 38
+        Me.Button3.Text = "GENERAR DATOS METEOROLÓGICOS"
+        Me.Button3.UseVisualStyleBackColor = True
         '
         'PictureBox2
         '
@@ -104,36 +96,6 @@ Partial Class Login
         Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
         Me.PictureBox4.TabIndex = 35
         Me.PictureBox4.TabStop = False
-        '
-        'btnShowPedidos
-        '
-        Me.btnShowPedidos.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnShowPedidos.Location = New System.Drawing.Point(-1, 601)
-        Me.btnShowPedidos.Name = "btnShowPedidos"
-        Me.btnShowPedidos.Size = New System.Drawing.Size(382, 82)
-        Me.btnShowPedidos.TabIndex = 31
-        Me.btnShowPedidos.Text = "MOSTRAR COMANDAS"
-        Me.btnShowPedidos.UseVisualStyleBackColor = True
-        '
-        'Button2
-        '
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(-1, 530)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(198, 51)
-        Me.Button2.TabIndex = 13
-        Me.Button2.Text = "ADMIN DEV"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'Button1
-        '
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(-1, 452)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(198, 51)
-        Me.Button1.TabIndex = 12
-        Me.Button1.Text = "TPV DEV"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'PictureBox1
         '
@@ -184,16 +146,6 @@ Partial Class Login
         Me.btnLogin.Text = "INICIAR SESIÓN"
         Me.btnLogin.UseVisualStyleBackColor = True
         '
-        'Button3
-        '
-        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(-1, 378)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(198, 51)
-        Me.Button3.TabIndex = 38
-        Me.Button3.Text = "WEATHER"
-        Me.Button3.UseVisualStyleBackColor = True
-        '
         'Login
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -222,11 +174,7 @@ Partial Class Login
     Friend WithEvents ckPasswordChar As CheckBox
     Friend WithEvents PictureBox1 As PictureBox
     Public WithEvents txtPassword As TextBox
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
-    Friend WithEvents btnShowPedidos As Button
     Friend WithEvents PictureBox4 As PictureBox
     Friend WithEvents PictureBox2 As PictureBox
-    Friend WithEvents btnModalCustomShow As Button
     Friend WithEvents Button3 As Button
 End Class

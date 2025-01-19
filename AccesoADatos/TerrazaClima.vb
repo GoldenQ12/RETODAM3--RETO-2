@@ -21,9 +21,16 @@ Public Class TerrazaClima
 
                     Dim jsonObject As JObject = JObject.Parse(jsonResponse)
 
-                    Dim lat As Double = jsonObject("results")(0)("geometry")("lat")
-                    Dim lng As Double = jsonObject("results")(0)("geometry")("lng")
-                    Return (lat, lng)
+                    If jsonObject("total_results") = "0" Then
+                        MsgBox($"Lo siento, pero no existen datos para la ciudad {city}")
+                        Return (0, 0)
+                    Else
+                        Dim lat As Double = jsonObject("results")(0)("geometry")("lat")
+                        Dim lng As Double = jsonObject("results")(0)("geometry")("lng")
+                        Return (lat, lng)
+                    End If
+
+
                 End Using
             End Using
 
@@ -36,7 +43,20 @@ Public Class TerrazaClima
 
     Public Sub XmlToSQL()
         ' Path to the XML file
-        Dim xmlFilePath As String = "C:\Users\golde\Downloads\Github\RETODAM3--RETO-2\AccesoADatos\bin\Debug\weather_data.xml"
+        Dim relativePath As String = "weather_data.xml"
+
+        ' Combine the relative path with the current directory
+        Dim xmlFilePath As String = Path.Combine(Directory.GetCurrentDirectory(), relativePath)
+
+        ' Create the XML file
+        Using fs As FileStream = File.Create(xmlFilePath)
+            ' Optionally, you can write some initial content to the file here
+        End Using
+
+        ' Create the XML file
+        Using fs As FileStream = File.Create(xmlFilePath)
+            ' Optionally, you can write some initial content to the file here
+        End Using
 
         Dim xmlContent As String = File.ReadAllText(xmlFilePath)
 
@@ -98,10 +118,8 @@ Public Class TerrazaClima
     End Function
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.Text = "Google Maps and Weather Data"
         Me.CenterToScreen()
 
-        Button1.Text = "Get Weather Data"
 
     End Sub
 
@@ -110,10 +128,14 @@ Public Class TerrazaClima
         Dim coords As (Double, Double) = LoadMap(city)
         Dim lat As String = coords.Item1.ToString.Replace(",", ".")
         Dim lng As String = coords.Item2.ToString.Replace(",", ".")
-        LoadMap(city)
-        Dim apiURL As String = $"https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lng}&current=temperature_2m,apparent_temperature&hourly=temperature_2m,rain,snowfall&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=GMT&forecast_days=1"
-        Dim task = GetWeatherData(apiURL)
-        XmlToSQL()
-        MsgBox("Datos generados correctamente")
+        If lat <> "0" Or lng <> "0" Then
+            Dim apiURL As String = $"https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lng}&current=temperature_2m,apparent_temperature&hourly=temperature_2m,rain,snowfall&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=GMT&forecast_days=1"
+            Dim task = GetWeatherData(apiURL)
+            XmlToSQL()
+        End If
+    End Sub
+
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
+        Label2.Text = TextBox1.Text
     End Sub
 End Class

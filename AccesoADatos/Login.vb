@@ -60,24 +60,24 @@ Public Class Login
     End Sub
 
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) 
         MsgBox("Acceso concedido. Bienvenido, Camarero!")
         TPVApp.Show()
         Me.Hide()
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs) 
         MsgBox("Acceso concedido. Bienvenido, Gerente!")
         AdminPanel.Show()
         Me.Hide()
     End Sub
 
-    Private Sub BtnShowPedidos_Click(sender As Object, e As EventArgs) Handles btnShowPedidos.Click
+    Private Sub BtnShowPedidos_Click(sender As Object, e As EventArgs) 
         Me.Hide()
         Comandas.Show()
     End Sub
 
-    Private Sub btnModalCustomShow_Click(sender As Object, e As EventArgs) Handles btnModalCustomShow.Click
+    Private Sub btnModalCustomShow_Click(sender As Object, e As EventArgs) 
         Modals.Show()
     End Sub
 
