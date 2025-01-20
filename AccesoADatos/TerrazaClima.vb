@@ -2,7 +2,12 @@
 Imports System.IO
 Imports System.Net
 Imports System.Net.Http
+Imports System.Threading
 Imports System.Xml
+Imports Google.Apis.Auth.OAuth2
+Imports Google.Apis.Drive.v3
+Imports Google.Apis.Services
+Imports Google.Apis.Util.Store
 Imports Newtonsoft.Json
 Imports Newtonsoft.Json.Linq
 
@@ -45,45 +50,51 @@ Public Class TerrazaClima
         ' Path to the XML file
         Dim relativePath As String = "weather_data.xml"
 
-        ' Combine the relative path with the current directory
-        Dim xmlFilePath As String = Path.Combine(Directory.GetCurrentDirectory(), relativePath)
 
-        ' Create the XML file
-        Using fs As FileStream = File.Create(xmlFilePath)
-            ' Optionally, you can write some initial content to the file here
+        Dim xmlContent As String = File.ReadAllText(relativePath)
+        Dim Scopes As String() = {DriveService.Scope.DriveFile}
+        Dim ApplicationName As String = "Desktop App"
+        Dim credential As UserCredential
+
+        Using stream = New FileStream("credentials.json", FileMode.Open, FileAccess.Read)
+            Dim credPath As String = "token.json"
+            credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
+                GoogleClientSecrets.FromStream(stream).Secrets,
+                Scopes,
+                "user",
+                CancellationToken.None,
+                New FileDataStore(credPath, True)).Result
+            Console.WriteLine("Credential file saved to: " & credPath)
         End Using
 
-        ' Create the XML file
-        Using fs As FileStream = File.Create(xmlFilePath)
-            ' Optionally, you can write some initial content to the file here
-        End Using
+        Dim service As New DriveService(New BaseClientService.Initializer() With {
+            .HttpClientInitializer = credential,
+            .ApplicationName = ApplicationName
+        })
 
-        Dim xmlContent As String = File.ReadAllText(xmlFilePath)
+        ' Upload a file
+        UploadFile(service, relativePath, "1z5bUxXp1oKklz1OfDLx93mGhpwXd0kE3")
 
-        ' Connection string to your SQL Server database
-        Dim connectionString As String = "Server=PC-ALEXANDER;Database=Reto;user=user;Password=root;"
-
-        Dim insertQuery As String = "INSERT INTO weather (_XML) VALUES(@XML)"
-        ' Create a new XmlDocument
-        Using connection As New SqlConnection(connectionString)
-            connection.Open()
-
-
-
-            ' Prepare the SQL insert command
-            Using command As New SqlCommand(insertQuery, connection)
-                ' Add the XML content as a parameter
-                command.Parameters.AddWithValue("@XML", xmlContent)
-
-                ' Execute the insert command
-                command.ExecuteNonQuery()
-            End Using
-        End Using
-
-        Console.WriteLine("Data inserted successfully.")
     End Sub
 
+    Sub UploadFile(service As DriveService, filePath As String, folderId As String)
+        Dim fileMetadata As New Google.Apis.Drive.v3.Data.File() With {
+        .Name = Path.GetFileName(filePath),
+        .Parents = New List(Of String) From {folderId} ' Set the parent folder ID
+    }
 
+        Using stream = New FileStream(filePath, FileMode.Open)
+            Dim request = service.Files.Create(fileMetadata, stream, "text/plain")
+            request.Fields = "id"
+            Dim file = request.Upload()
+
+            If file.Status = Google.Apis.Upload.UploadStatus.Completed Then
+                Console.WriteLine("File ID: " & request.ResponseBody.Id)
+            Else
+                Console.WriteLine("Error uploading file.")
+            End If
+        End Using
+    End Sub
 
     Private Async Function GetWeatherData(apiUrl As String) As Task
         Using client As New HttpClient()
@@ -101,6 +112,8 @@ Public Class TerrazaClima
                 Dim filePath As String = "weather_data.xml"
 
                 File.WriteAllText(filePath, xmlData)
+
+                XmlToSQL()
 
                 MessageBox.Show($"Guardado correctamente")
 
@@ -131,7 +144,6 @@ Public Class TerrazaClima
         If lat <> "0" Or lng <> "0" Then
             Dim apiURL As String = $"https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lng}&current=temperature_2m,apparent_temperature&hourly=temperature_2m,rain,snowfall&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=GMT&forecast_days=1"
             Dim task = GetWeatherData(apiURL)
-            XmlToSQL()
         End If
     End Sub
 
