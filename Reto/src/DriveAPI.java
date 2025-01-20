@@ -13,6 +13,7 @@ import com.google.api.client.http.HttpResponse;
 import java.io.*;
 import java.net.URL;
 import java.net.URLDecoder;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -20,6 +21,7 @@ public class DriveAPI {
     private static final String APPLICATION_NAME = "Desktop App";
     private static final JsonFactory JSON_FACTORY = GsonFactory.getDefaultInstance();
     private static final String CREDENTIALS_FILE_PATH = "credentials.json"; 
+    private static final String[] Scopes = { DriveScopes.DRIVE_FILE };
     private Drive driveService;
 
     public DriveAPI() throws Exception {
@@ -31,9 +33,12 @@ public class DriveAPI {
         GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(JSON_FACTORY, new InputStreamReader(in));
 
         GoogleAuthorizationCodeFlow flow = new GoogleAuthorizationCodeFlow.Builder(
-                GoogleNetHttpTransport.newTrustedTransport(), JSON_FACTORY, clientSecrets, Collections.singleton(DriveScopes.DRIVE_READONLY))
-                .setAccessType("offline")
-                .build();
+                GoogleNetHttpTransport.newTrustedTransport(),
+                JSON_FACTORY,
+                clientSecrets,
+                Arrays.asList(Scopes)) // Pass the scopes as a list
+            .setAccessType("offline")
+            .build();
 
         // Attempt to load credentials
         Credential credential = flow.loadCredential("user");
