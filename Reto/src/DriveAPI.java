@@ -8,6 +8,7 @@ import com.google.api.services.drive.model.File;
 import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.googleapis.auth.oauth2.GoogleAuthorizationCodeFlow;
 import com.google.api.client.googleapis.auth.oauth2.GoogleClientSecrets;
+import com.google.api.client.http.FileContent;
 import com.google.api.client.http.HttpResponse;
 
 import java.io.*;
@@ -112,5 +113,23 @@ public class DriveAPI {
         }
 
         return fileContent.toString();
+    }
+    
+    public void uploadFile(java.io.File localFile) throws IOException {
+        // Create a File object for the upload request
+        File fileMetadata = new File();
+        fileMetadata.setName(localFile.getName());
+        
+        // Set the file content
+        FileContent mediaContent = new FileContent("text/plain", localFile);
+        
+        // Create the file on Google Drive
+        File uploadedFile = driveService.files().create(fileMetadata, mediaContent)
+                .setFields("id, name, mimeType")
+                .execute();
+        
+        System.out.println("File ID: " + uploadedFile.getId());
+        System.out.println("File Name: " + uploadedFile.getName());
+        System.out.println("File MIME Type: " + uploadedFile.getMimeType());
     }
 }

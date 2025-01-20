@@ -189,8 +189,13 @@ public class Chat extends JDialog {
         		
         		if (returnValue == JFileChooser.APPROVE_OPTION) {
         			File selectedFile = fileChooser.getSelectedFile();
-        			String[] cloudinaryArgs = { selectedFile.getAbsolutePath() }; // Create a String array
-        			CloudinaryAPI.main(cloudinaryArgs);
+        			try {
+            			DriveAPI api = new DriveAPI();
+            			api.uploadFile(selectedFile);
+        			}
+        			catch (Exception ex) {
+        				ex.getMessage();
+        			}
         			
         		}
         	}

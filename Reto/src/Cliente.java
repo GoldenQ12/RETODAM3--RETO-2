@@ -18,27 +18,24 @@ import javax.net.ssl.*;
 	    	try {
 	    		System.setProperty("javax.net.ssl.trustStore", "certificados/ChatSSL");
 	            System.setProperty("javax.net.ssl.trustStorePassword", "1234567");
-	             
-	    		InputStream certInputStream = new FileInputStream("C:/Users/golde/Downloads/TEST/Reto/certificados/_.cloudinary.cer");
-	            CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
-	            Certificate certificate = (Certificate) certificateFactory.generateCertificates(certInputStream);
-	            certInputStream.close();
+	            
+	            KeyStore trustStore = KeyStore.getInstance(KeyStore.getDefaultType());
+	            try (FileInputStream trustStoreStream = new FileInputStream("path_to_your_truststore_file")) {
+	                trustStore.load(trustStoreStream, "truststore_password".toCharArray());
+	            }
 
-	            // Create a KeyStore containing the trusted certificate
-	            KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
-	            keyStore.load(null, null);
-	            keyStore.setCertificateEntry("ca", certificate);
-
-	            // Create a TrustManager that trusts the certificate in our KeyStore
+	            // Set up a TrustManagerFactory to use the custom trust store
 	            TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
-	            trustManagerFactory.init(keyStore);
+	            trustManagerFactory.init(trustStore);
 
-	            // Create an SSLContext that uses our TrustManager
+	            // Create an SSLContext with the custom TrustManager
 	            SSLContext sslContext = SSLContext.getInstance("TLS");
 	            sslContext.init(null, trustManagerFactory.getTrustManagers(), null);
 
-	            // Create an SSLSocketFactory from our SSLContext
-	            SSLSocketFactory sslSocketFactory = sslContext.getSocketFactory();
+	            // Set the default SSLContext to the custom one
+	            SSLContext.setDefault(sslContext);
+
+
 
 	    	}
 	    	catch (Exception ex) {
@@ -71,6 +68,41 @@ import javax.net.ssl.*;
 	            // Hilo para escuchar mensajes del servidor
 	            new Thread(() -> {
 	                try {
+	                	InputStream certInputStream = getResources().openRawResource(R.raw.certificado);
+	                    CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
+	                    Certificate certificate = certificateFactory.generateCertificate(certInputStream);
+	                    certInputStream.close();
+
+	                    // Create a KeyStore containing the trusted certificate
+	                    KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
+	                    keyStore.load(null, null);
+	                    keyStore.setCertificateEntry("ca", certificate);
+
+	                    // Create a TrustManager that trusts the certificate in our KeyStore
+	                    TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+	                    trustManagerFactory.init(keyStore);
+
+	                    // Create an SSLContext that uses our TrustManager
+	                    SSLContext sslContext = SSLContext.getInstance("TLS");
+	                    sslContext.init(null, trustManagerFactory.getTrustManagers(), null);
+
+	                    // Create an SSLSocketFactory from our SSLContext
+	                    SSLSocketFactory sslSocketFactory = sslContext.getSocketFactory();
+
+	                    // Create an SSLSocket using the SSLSocketFactory
+	                    //socket = (SSLSocket) sslSocketFactory.createSocket("172.20.10.3", 6000); // Agenor's Iphone
+	                    socket = (SSLSocket) sslSocketFactory.createSocket("192.168.1.254", 6000); // Saioa's home Iphone
+	                    out = new PrintWriter(socket.getOutputStream(), true);
+	                    in = new Scanner(socket.getInputStream());
+
+	                    serverListenerThread = new Thread(new ServerListener());
+	                    serverListenerThread.start();
+
+	                    // Send initial message to join the chat
+	                    out.println("1:" + HomeFragment.logedUser.getId() + ":" + getString(R.string.chat_join_message));
+
+	                    // Add database log
+	                    DatabaseHelper.chatConnectionInsertQuery(HomeFragment.logedUser.getId());
 	                    while ((mensaje = input.readLine()) != null) {
 	                        System.out.println("Mensaje recibido: " + mensaje);
 	                        chat.recibirMensaje(mensaje);

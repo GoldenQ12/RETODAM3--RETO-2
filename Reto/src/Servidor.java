@@ -16,26 +16,23 @@ public class Servidor {
     	try {
     		System.setProperty("javax.net.ssl.trustStore", "certificados/ChatSSL");
             System.setProperty("javax.net.ssl.trustStorePassword", "1234567");
-    		InputStream certInputStream = new FileInputStream("C:/Users/golde/Downloads/TEST/Reto/certificados/_.cloudinary.cer");
-            CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
-            Certificate certificate = (Certificate) certificateFactory.generateCertificates(certInputStream);
-            certInputStream.close();
+            System.setProperty("https.protocols", "TLSv1.2");
+            
+            KeyStore trustStore = KeyStore.getInstance(KeyStore.getDefaultType());
+            try (FileInputStream trustStoreStream = new FileInputStream("path_to_your_truststore_file")) {
+                trustStore.load(trustStoreStream, "truststore_password".toCharArray());
+            }
 
-            // Create a KeyStore containing the trusted certificate
-            KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
-            keyStore.load(null, null);
-            keyStore.setCertificateEntry("ca", certificate);
-
-            // Create a TrustManager that trusts the certificate in our KeyStore
+            // Set up a TrustManagerFactory to use the custom trust store
             TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
-            trustManagerFactory.init(keyStore);
+            trustManagerFactory.init(trustStore);
 
-            // Create an SSLContext that uses our TrustManager
+            // Create an SSLContext with the custom TrustManager
             SSLContext sslContext = SSLContext.getInstance("TLS");
             sslContext.init(null, trustManagerFactory.getTrustManagers(), null);
 
-            // Create an SSLSocketFactory from our SSLContext
-            SSLSocketFactory sslSocketFactory = sslContext.getSocketFactory();
+            // Set the default SSLContext to the custom one
+            SSLContext.setDefault(sslContext);
 
     	}
     	catch (Exception ex) {
