@@ -78,20 +78,36 @@ Public Class TerrazaClima
     End Sub
 
     Sub UploadFile(service As DriveService, filePath As String, folderId As String)
-        Dim fileMetadata As New Google.Apis.Drive.v3.Data.File() With {
-        .Name = Path.GetFileName(filePath),
-        .Parents = New List(Of String) From {folderId} ' Set the parent folder ID
-    }
+        Dim fileName As String = Path.GetFileName(filePath)
 
-        Using stream = New FileStream(filePath, FileMode.Open)
-            Dim request = service.Files.Create(fileMetadata, stream, "text/plain")
-            request.Fields = "id"
-            Dim file = request.Upload()
+        ' Check if a file with the same name exists in the folder
+        Dim query As String = $"name = '{fileName}' and '{folderId}' in parents and trashed = false"
+        Dim listRequest = service.Files.List()
+        listRequest.Q = query
+        listRequest.Fields = "files(id, name)"
+        Dim existingFiles = listRequest.Execute().Files
 
-            If file.Status = Google.Apis.Upload.UploadStatus.Completed Then
-                Console.WriteLine("File ID: " & request.ResponseBody.Id)
+        ' Delete existing file if found
+        If existingFiles IsNot Nothing AndAlso existingFiles.Count > 0 Then
+            For Each file In existingFiles
+                service.Files.Delete(file.Id).Execute()
+                Console.WriteLine($"Deleted existing file: {file.Name}")
+            Next
+        End If
+
+        ' Upload the new file
+        Dim fileMetadata = New Data.File() With {
+            .Name = fileName,
+            .Parents = New List(Of String) From {folderId}
+        }
+        Using fileStream = New FileStream(filePath, FileMode.Open, FileAccess.Read)
+            Dim uploadRequest = service.Files.Create(fileMetadata, fileStream, "application/octet-stream")
+            uploadRequest.Fields = "id"
+            Dim uploadedFile = uploadRequest.Upload()
+            If uploadedFile.Status = Google.Apis.Upload.UploadStatus.Completed Then
+                Console.WriteLine($"Uploaded file: {fileName}")
             Else
-                Console.WriteLine("Error uploading file.")
+                Console.WriteLine($"Failed to upload file: {fileName}")
             End If
         End Using
     End Sub
