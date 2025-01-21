@@ -81,10 +81,9 @@ public class Terraza extends JDialog {
 	
 	public static void loadData() {
 		try {
-			DriveAPI api = new DriveAPI();
-			String xml = api.downloadFilesFromFolder();
+			DriveAPI drive = new DriveAPI();
+			String xml = drive.downloadFilesFromFolderXML();
 			
-            // Create ObjectMapper instance
 
             XmlMapper xmlMapper = new XmlMapper();
 

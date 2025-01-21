@@ -1,6 +1,10 @@
 import java.io.*;
 import java.security.KeyStore;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.UnrecoverableKeyException;
 import java.security.cert.Certificate;
+import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.util.*;
 import javax.net.ssl.*;
@@ -14,30 +18,13 @@ public class Servidor {
 
     static {
     	try {
-    		System.setProperty("javax.net.ssl.trustStore", "certificados/ChatSSL");
-            System.setProperty("javax.net.ssl.trustStorePassword", "1234567");
-            System.setProperty("https.protocols", "TLSv1.2");
-            
-            KeyStore trustStore = KeyStore.getInstance(KeyStore.getDefaultType());
-            try (FileInputStream trustStoreStream = new FileInputStream("path_to_your_truststore_file")) {
-                trustStore.load(trustStoreStream, "truststore_password".toCharArray());
-            }
+            // Set the system properties for trust store and password
+    		System.setProperty("javax.net.ssl.keyStore", "certificados/ChatSSL");
+            System.setProperty("javax.net.ssl.keyStorePassword", "1234567");
 
-            // Set up a TrustManagerFactory to use the custom trust store
-            TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
-            trustManagerFactory.init(trustStore);
-
-            // Create an SSLContext with the custom TrustManager
-            SSLContext sslContext = SSLContext.getInstance("TLS");
-            sslContext.init(null, trustManagerFactory.getTrustManagers(), null);
-
-            // Set the default SSLContext to the custom one
-            SSLContext.setDefault(sslContext);
-
-    	}
-    	catch (Exception ex) {
-    		ex.getMessage();
-    	}
+        } catch (Exception e) {
+            System.out.println("Error setting up SSLContext: " + e.getMessage());
+        }
     	
     }
 
@@ -64,7 +51,8 @@ public class Servidor {
 
     public void iniciar() {
         try {
-            SSLServerSocketFactory sfact = (SSLServerSocketFactory) SSLServerSocketFactory.getDefault();
+            
+        	SSLServerSocketFactory sfact = (SSLServerSocketFactory) SSLServerSocketFactory.getDefault();
             SSLServerSocket servidorSSL = (SSLServerSocket) sfact.createServerSocket(PUERTO);
             System.out.println("Servidor SSL iniciado en el puerto " + PUERTO);
 

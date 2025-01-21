@@ -184,20 +184,23 @@ public class Chat extends JDialog {
         RoundedButton rndbtnAddImage = new RoundedButton("😊");
         rndbtnAddImage.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		JFileChooser fileChooser = new JFileChooser();
-        		int returnValue = fileChooser.showOpenDialog(null);
-        		
-        		if (returnValue == JFileChooser.APPROVE_OPTION) {
-        			File selectedFile = fileChooser.getSelectedFile();
-        			try {
-            			DriveAPI api = new DriveAPI();
-            			api.uploadFile(selectedFile);
-        			}
-        			catch (Exception ex) {
-        				ex.getMessage();
-        			}
-        			
-        		}
+        		String image = getClass().getResource("logo.png").toExternalForm();
+        		textoTotal += "<img src='" + image + "'>";
+//        		JFileChooser fileChooser = new JFileChooser();
+//        		int returnValue = fileChooser.showOpenDialog(null);
+//        		
+//        		if (returnValue == JFileChooser.APPROVE_OPTION) {
+//        			File selectedFile = fileChooser.getSelectedFile();
+//        			try {
+//            			DriveAPI api = new DriveAPI();
+//            			api.uploadFile(selectedFile);
+//            			
+//        			}
+//        			catch (Exception ex) {
+//        				ex.getMessage();
+//        			}
+//        			
+//        		}
         	}
         });
         rndbtnAddImage.setText("ADD IMAGE");
@@ -238,6 +241,12 @@ public class Chat extends JDialog {
             }
 
             textPane.setText("<html><body style='margin: 0; padding: 0;'>" + textoTotal + "</body></html>");
+        });
+    }
+    
+    public void recibirImagen(String imagen) {
+    	SwingUtilities.invokeLater(() -> {
+    		
         });
     }
 

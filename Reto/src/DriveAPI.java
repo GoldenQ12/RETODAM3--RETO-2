@@ -12,7 +12,9 @@ import com.google.api.client.http.FileContent;
 import com.google.api.client.http.HttpResponse;
 
 import java.io.*;
+import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLConnection;
 import java.net.URLDecoder;
 import java.util.Arrays;
 import java.util.Collections;
@@ -86,6 +88,22 @@ public class DriveAPI {
         }
 		return "";
     }
+    
+    public String downloadFilesFromFolder(String user) throws IOException {
+        // Extract the folder ID from the Google Drive URL
+        String folderId = "1WkAHPP52QRksjq9JBKDnUctWzEF_7Q-y";
+
+        // List all files in the folder
+        List<File> files = listFilesInFolder(folderId);
+
+        // Download each file
+        for (File file : files) {
+            if (user.equals(file.getName())) {
+                downloadImage(file.getId(), file.getName());
+            }
+        }
+		return "";
+    }
 
 
     public List<File> listFilesInFolder(String folderId) throws IOException {
@@ -115,13 +133,45 @@ public class DriveAPI {
         return fileContent.toString();
     }
     
+    public void downloadImage(String fileId, String fileName) throws IOException {
+        // Fetch the image file from Google Drive using the Drive API
+        HttpResponse response = driveService.files().get(fileId).executeMedia();
+        InputStream inputStream = response.getContent();
+
+        // Create a local file on your system where the image will be saved
+        java.io.File localFile = new java.io.File(fileName); // Use java.io.File here
+
+        // Create an output stream to save the image locally
+        try (BufferedInputStream bis = new BufferedInputStream(inputStream);
+             FileOutputStream fos = new FileOutputStream(localFile)) {
+
+            byte[] buffer = new byte[1024];
+            int bytesRead;
+            while ((bytesRead = bis.read(buffer)) != -1) {
+                fos.write(buffer, 0, bytesRead);
+            }
+        } catch (IOException e) {
+            System.err.println("Error saving the image: " + e.getMessage());
+        } finally {
+            // Always close the input stream
+            inputStream.close();
+        }
+
+        System.out.println("Image downloaded successfully: " + localFile.getName());  // Print file name after download
+    }
+    
     public void uploadFile(java.io.File localFile) throws IOException {
         // Create a File object for the upload request
         File fileMetadata = new File();
         fileMetadata.setName(localFile.getName());
-        
-        // Set the file content
-        FileContent mediaContent = new FileContent("text/plain", localFile);
+        FileContent mediaContent = null;
+
+// Set the file content
+        if (localFile.toString().endsWith(".xml")) {
+        	mediaContent = new FileContent("text/plain", localFile);
+        } else {
+        	mediaContent = new FileContent("application/octet-stream", localFile);
+        }
         
         // Create the file on Google Drive
         File uploadedFile = driveService.files().create(fileMetadata, mediaContent)
