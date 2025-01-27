@@ -84,7 +84,7 @@ public class Terraza extends JDialog {
 	
 	public static void loadData() {
 		try {
-			String xml = weather.getXML();
+			String xml = weather.fetchXmlAsString("http://localhost/uploads/weather_data.xml");
 			
             // Create ObjectMapper instance
 
