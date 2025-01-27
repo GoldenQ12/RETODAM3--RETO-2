@@ -2,6 +2,7 @@
 Imports System.IO
 Imports System.Net
 Imports System.Net.Http
+Imports System.Text
 Imports System.Threading
 Imports System.Xml
 Imports Google.Apis.Auth.OAuth2
@@ -50,32 +51,44 @@ Public Class TerrazaClima
         ' Path to the XML file
         Dim relativePath As String = "weather_data.xml"
 
+        ' Check if the file exists
+        If Not File.Exists(relativePath) Then
+            Console.WriteLine("File not found: " & relativePath)
+            Return
+        End If
 
+        ' Read the content of the XML file
         Dim xmlContent As String = File.ReadAllText(relativePath)
-        Dim Scopes As String() = {DriveService.Scope.DriveFile}
-        Dim ApplicationName As String = "Desktop App"
-        Dim credential As UserCredential
 
-        Using stream = New FileStream("credentials.json", FileMode.Open, FileAccess.Read)
-            Dim credPath As String = "token.json"
-            credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
-                GoogleClientSecrets.FromStream(stream).Secrets,
-                Scopes,
-                "user",
-                CancellationToken.None,
-                New FileDataStore(credPath, True)).Result
-            Console.WriteLine("Credential file saved to: " & credPath)
-        End Using
+        ' Define the XAMPP server URL (e.g., pointing to a PHP script for handling uploads)
+        Dim serverUrl As String = "http://localhost/upload.php"
 
-        Dim service As New DriveService(New BaseClientService.Initializer() With {
-            .HttpClientInitializer = credential,
-            .ApplicationName = ApplicationName
-        })
+        Try
+            ' Create an HttpClient instance
+            Using client As New HttpClient()
+                ' Create a MultipartFormDataContent object to hold the file data
+                Using formData As New MultipartFormDataContent()
+                    ' Add the XML file as a ByteArrayContent
+                    Dim fileContent As New ByteArrayContent(Encoding.UTF8.GetBytes(xmlContent))
+                    fileContent.Headers.ContentType = New System.Net.Http.Headers.MediaTypeHeaderValue("application/xml")
+                    formData.Add(fileContent, "file", Path.GetFileName(relativePath))
 
-        ' Upload a file
-        UploadFile(service, relativePath, "1z5bUxXp1oKklz1OfDLx93mGhpwXd0kE3")
+                    ' Send the POST request to the server
+                    Dim response As HttpResponseMessage = client.PostAsync(serverUrl, formData).Result
 
+                    ' Check the response
+                    If response.IsSuccessStatusCode Then
+                        MsgBox("File uploaded successfully.")
+                    Else
+                        MsgBox("File upload failed. Status: " & response.StatusCode)
+                    End If
+                End Using
+            End Using
+        Catch ex As Exception
+            MsgBox("An error occurred: " & ex.Message)
+        End Try
     End Sub
+
 
     Sub UploadFile(service As DriveService, filePath As String, folderId As String)
         Dim fileName As String = Path.GetFileName(filePath)
