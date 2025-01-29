@@ -9,6 +9,16 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+<<<<<<< Updated upstream
+=======
+import conexion.conexion;
+import modeloDAO.TiempoMunicipio;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
+
+>>>>>>> Stashed changes
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -48,7 +58,7 @@ public class gestionEmpleados extends JDialog {
 		contentPanel.setLayout(null);
 		{
 			JPanel buttonPane = new JPanel();
-			buttonPane.setBounds(10, 406, 775, 38);
+			buttonPane.setBounds(0, 406, 785, 38);
 			contentPanel.add(buttonPane);
 			buttonPane.setBackground(new Color(249, 220, 92));
 			buttonPane.setLayout(null);
@@ -119,6 +129,20 @@ public class gestionEmpleados extends JDialog {
 			btnConsultarEmpleados.setFont(new Font("Tahoma", Font.PLAIN, 15));
 			btnConsultarEmpleados.setBounds(512, 264, 189, 45);
 			contentPanel.add(btnConsultarEmpleados);
+<<<<<<< Updated upstream
+=======
+			
+			TiempoMunicipio tiempo = new TiempoMunicipio(48,48020);
+			tiempo.cargarDatos();
+			
+			{
+				JLabel lblTiempo = new JLabel(tiempo.getEstadoCielo());
+				lblTiempo.setFont(new Font("Tahoma", Font.PLAIN, 18));
+				lblTiempo.setHorizontalAlignment(SwingConstants.CENTER);
+				lblTiempo.setBounds(99, 358, 580, 38);
+				contentPanel.add(lblTiempo);
+			}
+>>>>>>> Stashed changes
 		}
 		
 		JButton btnConsultarFichajes = new JButton("Consultar fichajes");
@@ -132,9 +156,38 @@ public class gestionEmpleados extends JDialog {
 		btnConsultarFichajes.setBounds(316, 202, 189, 45);
 		contentPanel.add(btnConsultarFichajes);
 		
+<<<<<<< Updated upstream
 		JButton btnModificarempleados = new JButton("Modificar empleados");
 		btnModificarempleados.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnModificarempleados.setBounds(316, 331, 189, 45);
 		contentPanel.add(btnModificarempleados);
+=======
+		JButton btnInformeDeCargas = new JButton("Informe de cargas horarias");
+		btnInformeDeCargas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// Abre el visor de Jasper Reports que nos permite descargarlo
+				System.setProperty("net.sf.jasperreports.debug", "true");
+
+				JasperPrint jasperPrintWindow = null;
+				try {
+				    jasperPrintWindow = JasperFillManager.fillReport("src\\informes\\InformeCargaHoraria.jasper", null, conexion.getInstancia().getCon());
+				} catch (JRException e1) {
+				    System.err.println("Error al generar el informe: " + e1.getMessage());
+				    e1.printStackTrace();
+				}
+
+				/*
+				 * Abrimos el visor y le pasamos el informe generado antes.
+				 * Lo abrimos con la opción de 2 parámetros porque el 2º, que hemos puesto a false,
+				 * indica cerrar la aplicación cuando se cierra el visor (por defecto true)
+				 */
+				 JasperViewer jasperViewer = new JasperViewer(jasperPrintWindow,false);
+				 jasperViewer.setVisible(true); 
+			}
+		});
+		btnInformeDeCargas.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnInformeDeCargas.setBounds(290, 321, 242, 27);
+		contentPanel.add(btnInformeDeCargas);
+>>>>>>> Stashed changes
 	}
 }

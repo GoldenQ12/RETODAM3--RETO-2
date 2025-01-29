@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 6.0.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="InformeCargaHoraria" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="e115bc59-fd0f-446b-a585-04725e27d7f0">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MySQL Connection Reto"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#FFFFFF" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT 
+    e.id_empleado,
+    e.nombre,
+    e.apellidos,
+    FORMAT(f.fecha, 'yyyy-MM') AS mes,
+    SUM(DATEDIFF(MINUTE, f.hora_entrada, f.hora_salida) / 60.0) AS horas_trabajadas
+FROM dbo.fichajes f
+JOIN dbo.empleados e ON f.id_empleado = e.id_empleado
+WHERE f.hora_entrada IS NOT NULL 
+    AND f.hora_salida IS NOT NULL
+GROUP BY e.id_empleado, e.nombre, e.apellidos, FORMAT(f.fecha, 'yyyy-MM')
+ORDER BY e.id_empleado, mes;]]>
+	</queryString>
+	<field name="id_empleado" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="id_empleado"/>
+		<property name="com.jaspersoft.studio.field.label" value="id_empleado"/>
+	</field>
+	<field name="nombre" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nombre"/>
+		<property name="com.jaspersoft.studio.field.label" value="nombre"/>
+	</field>
+	<field name="apellidos" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="apellidos"/>
+		<property name="com.jaspersoft.studio.field.label" value="apellidos"/>
+	</field>
+	<field name="mes" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="mes"/>
+		<property name="com.jaspersoft.studio.field.label" value="mes"/>
+	</field>
+	<field name="horas_trabajadas" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="horas_trabajadas"/>
+		<property name="com.jaspersoft.studio.field.label" value="horas_trabajadas"/>
+	</field>
+	<background>
+		<band height="575" splitType="Stretch">
+			<image vAlign="Bottom">
+				<reportElement positionType="Float" x="-20" y="66" width="105" height="409" uuid="64ca4020-b604-4de9-9ed1-921b74cfd593"/>
+				<imageExpression><![CDATA["waves.jpg"]]></imageExpression>
+			</image>
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="475" width="105" height="100" backcolor="#666666" uuid="6eb7cb61-0dd7-47a8-8475-5fa6c3a348dc"/>
+				<textField>
+					<reportElement style="Column header" x="0" y="0" width="104" height="73" forecolor="#000000" uuid="db8457c8-99e9-434f-b439-2d400dff2bcd"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="58" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="0" y="77" width="104" height="20" forecolor="#000000" uuid="e20c8a65-aded-41dc-a107-108a9159af99"/>
+					<box leftPadding="4" rightPadding="4"/>
+					<textElement textAlignment="Center">
+						<font size="16" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement mode="Transparent" x="42" y="73" width="20" height="1" backcolor="#FFFFFF" uuid="db6d7ead-4383-4f8c-81cf-1e3064eb6924"/>
+				</line>
+			</frame>
+		</band>
+	</background>
+	<title>
+		<band height="104" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="0" y="0" width="802" height="67" uuid="1dcadd54-7d50-4470-85ed-189e4d910b25"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="54" isBold="false"/>
+				</textElement>
+				<text><![CDATA[DRAGON TECH]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="232" y="67" width="568" height="37" uuid="862cb50c-5a5e-4906-a495-226e25115fb6"/>
+				<textElement textAlignment="Right">
+					<font size="26"/>
+				</textElement>
+				<text><![CDATA[Carga Horaria de Empleados]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="97" y="5" width="705" height="20" backcolor="#666666" uuid="35d90a9b-bb7e-4ec4-bfa2-68be1967d6b2"/>
+				<staticText>
+					<reportElement style="Column header" x="0" y="0" width="141" height="15" uuid="59926f10-c683-4d87-8538-20d09ee2620e">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dd94dd8f-2903-4cee-a734-9659b047d9db"/>
+					</reportElement>
+					<text><![CDATA[ID]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="141" y="0" width="141" height="15" uuid="1404df39-855d-4975-838d-f4ac0324b765">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ce717628-76d2-4764-beed-b3980c4f8a26"/>
+					</reportElement>
+					<text><![CDATA[NOMBRE]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="282" y="0" width="141" height="15" uuid="88114f1a-c569-4966-902d-ecd6ebde5c73">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c3fc02ec-e74f-41f9-817c-9f7e495e160a"/>
+					</reportElement>
+					<text><![CDATA[APELLIDOS]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="423" y="0" width="141" height="15" uuid="92a2e033-9ace-4430-a3f2-137bd23a6dbe">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="24bb3b12-1580-435a-8c50-e63c1c7827f6"/>
+					</reportElement>
+					<text><![CDATA[MES]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="564" y="0" width="141" height="15" uuid="8b3a980a-9df6-49cb-836c-9763837ea367">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a9cee7db-54ab-414d-9c05-74f74ae7daf3"/>
+					</reportElement>
+					<text><![CDATA[HORAS TRABAJADAS]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<frame>
+				<reportElement x="97" y="1" width="705" height="15" uuid="89a3da05-fdde-4ffe-965f-cc476f72e3ab"/>
+				<textField>
+					<reportElement style="Detail" x="0" y="0" width="141" height="20" uuid="d31b6324-9d15-469b-af11-6969520d334d">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dd94dd8f-2903-4cee-a734-9659b047d9db"/>
+					</reportElement>
+					<textElement>
+						<font size="16"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{id_empleado}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="141" y="0" width="141" height="20" uuid="e283720d-791f-41d1-802f-785c0d9ec5d7">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ce717628-76d2-4764-beed-b3980c4f8a26"/>
+					</reportElement>
+					<textElement>
+						<font size="16"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="282" y="0" width="141" height="20" uuid="40ecb01c-614f-48aa-a8d4-910a54991913">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c3fc02ec-e74f-41f9-817c-9f7e495e160a"/>
+					</reportElement>
+					<textElement>
+						<font size="16"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{apellidos}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="423" y="0" width="141" height="20" uuid="cf5b184d-bcfd-4ebd-85f5-04f92e984992">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="24bb3b12-1580-435a-8c50-e63c1c7827f6"/>
+					</reportElement>
+					<textElement>
+						<font size="16"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{mes}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="564" y="0" width="141" height="20" uuid="33f054e2-d4e2-4d4b-8952-25bc22ba3d4d">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a9cee7db-54ab-414d-9c05-74f74ae7daf3"/>
+					</reportElement>
+					<textElement>
+						<font size="16"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{horas_trabajadas}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="97" y="16" width="705" height="1" uuid="e5f21b91-7f24-498e-97a1-0e93db9225a4"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="39" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

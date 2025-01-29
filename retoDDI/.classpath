@@ -6,6 +6,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< Updated upstream
 	<classpathentry including="**/*.java" kind="src" output="target/classes" path="src">
 		<attributes>
 			<attribute name="optional" value="true"/>
@@ -20,4 +21,16 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
+=======
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="C:/Users/ikeri/Downloads/mssql-jdbc-12.8.1.jre8.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ikeri/Downloads/gson-2.8.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ikeri/Downloads/librerias de reportes/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ikeri/Downloads/librerias de reportes/commons-digester-2.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ikeri/Downloads/librerias de reportes/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ikeri/Downloads/librerias de reportes/itextpdf-5.5.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ikeri/Downloads/librerias de reportes/itext-pdfa-5.5.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ikeri/Downloads/librerias de reportes/jasperreports-6.0.0.jar"/>
+	<classpathentry kind="output" path="bin"/>
+>>>>>>> Stashed changes
 </classpath>
