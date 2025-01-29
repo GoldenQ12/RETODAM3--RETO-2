@@ -9,8 +9,6 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-<<<<<<< Updated upstream
-=======
 import conexion.conexion;
 import modeloDAO.TiempoMunicipio;
 import net.sf.jasperreports.engine.JRException;
@@ -18,17 +16,21 @@ import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.view.JasperViewer;
 
->>>>>>> Stashed changes
 import java.awt.Font;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
+import java.util.Map;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
+import javax.swing.JTextField;
 
 public class gestionEmpleados extends JDialog {
 
 	private static final long serialVersionUID = 1L;
 	private final JPanel contentPanel = new JPanel();
+	private JTextField txtfecha;
 
 	/**
 	 * Launch the application.
@@ -129,8 +131,6 @@ public class gestionEmpleados extends JDialog {
 			btnConsultarEmpleados.setFont(new Font("Tahoma", Font.PLAIN, 15));
 			btnConsultarEmpleados.setBounds(512, 264, 189, 45);
 			contentPanel.add(btnConsultarEmpleados);
-<<<<<<< Updated upstream
-=======
 			
 			TiempoMunicipio tiempo = new TiempoMunicipio(48,48020);
 			tiempo.cargarDatos();
@@ -142,7 +142,6 @@ public class gestionEmpleados extends JDialog {
 				lblTiempo.setBounds(99, 358, 580, 38);
 				contentPanel.add(lblTiempo);
 			}
->>>>>>> Stashed changes
 		}
 		
 		JButton btnConsultarFichajes = new JButton("Consultar fichajes");
@@ -156,21 +155,23 @@ public class gestionEmpleados extends JDialog {
 		btnConsultarFichajes.setBounds(316, 202, 189, 45);
 		contentPanel.add(btnConsultarFichajes);
 		
-<<<<<<< Updated upstream
-		JButton btnModificarempleados = new JButton("Modificar empleados");
-		btnModificarempleados.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnModificarempleados.setBounds(316, 331, 189, 45);
-		contentPanel.add(btnModificarempleados);
-=======
 		JButton btnInformeDeCargas = new JButton("Informe de cargas horarias");
 		btnInformeDeCargas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String fecha = txtfecha.getText();
+                if (!fecha.matches("\\d{4}-\\d{2}") || fecha.isEmpty()) { // Verifica el formato
+                    JOptionPane.showMessageDialog(null, "Ingrese una fecha válida en formato YYYY-MM", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                
 				// Abre el visor de Jasper Reports que nos permite descargarlo
 				System.setProperty("net.sf.jasperreports.debug", "true");
 
+				Map <String, Object> parametros = new HashMap();
+				parametros.put ("Parameter1", Integer.parseInt(fecha));
 				JasperPrint jasperPrintWindow = null;
 				try {
-				    jasperPrintWindow = JasperFillManager.fillReport("src\\informes\\InformeCargaHoraria.jasper", null, conexion.getInstancia().getCon());
+				    jasperPrintWindow = JasperFillManager.fillReport("src\\informes\\InformeCargaHoraria.jasper", parametros, conexion.getInstancia().getCon());
 				} catch (JRException e1) {
 				    System.err.println("Error al generar el informe: " + e1.getMessage());
 				    e1.printStackTrace();
@@ -186,8 +187,12 @@ public class gestionEmpleados extends JDialog {
 			}
 		});
 		btnInformeDeCargas.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnInformeDeCargas.setBounds(290, 321, 242, 27);
+		btnInformeDeCargas.setBounds(169, 321, 242, 27);
 		contentPanel.add(btnInformeDeCargas);
->>>>>>> Stashed changes
+		
+		txtfecha = new JTextField();
+		txtfecha.setBounds(434, 321, 201, 27);
+		contentPanel.add(txtfecha);
+		txtfecha.setColumns(10);
 	}
 }
