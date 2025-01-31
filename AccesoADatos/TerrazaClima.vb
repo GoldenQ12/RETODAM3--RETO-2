@@ -61,11 +61,6 @@ Public Class TerrazaClima
 
                     Dim response As HttpResponseMessage = client.PostAsync(serverUrl, formData).Result
 
-                    If response.IsSuccessStatusCode Then
-                        MsgBox("File uploaded successfully.")
-                    Else
-                        MsgBox("File upload failed. Status: " & response.StatusCode)
-                    End If
                 End Using
             End Using
         Catch ex As Exception
