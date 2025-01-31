@@ -103,19 +103,24 @@ public class InicioSesion extends JFrame {
 			    }
 				
 				lista = empleadoDAO.listarTodos();
-				for(empleadosDTO emp : lista) {
-					if (emp.getEmail().equals(email) && emp.getPassword().equals(pass)) {
-						if (empleadoDAO.obtenerCargoPorEmailYPassword(email, pass).equals("gerente")) {
-							gestionEmpleados gestionEmpleados = new gestionEmpleados();
-							gestionEmpleados.setVisible(true);
-						}else {
-							gestionFichajes gestionFichajes = new gestionFichajes(email);
-							gestionFichajes.setVisible(true);
-						}
-					}else {
-						JOptionPane.showMessageDialog(null, "Contraseña o usuario incorrecto", "Error", JOptionPane.ERROR_MESSAGE);
-						return;
-					}
+				boolean found = false;
+
+				for (empleadosDTO emp : lista) {
+				    if (emp.getEmail().equals(email) && emp.getPassword().equals(pass)) {
+				        found = true;
+				        if (empleadoDAO.obtenerCargoPorEmailYPassword(email, pass).equals("gerente")) {
+				            gestionEmpleados gestionEmpleados = new gestionEmpleados();
+				            gestionEmpleados.setVisible(true);
+				        } else {
+				            gestionFichajes gestionFichajes = new gestionFichajes(email);
+				            gestionFichajes.setVisible(true);
+				        }
+				        break; 
+				    }
+				}
+
+				if (!found) {
+				    JOptionPane.showMessageDialog(null, "Contraseña o usuario incorrecto", "Error", JOptionPane.ERROR_MESSAGE);
 				}
 			}
 		});

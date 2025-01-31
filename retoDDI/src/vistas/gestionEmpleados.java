@@ -25,6 +25,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
+import javax.swing.ImageIcon;
+import java.awt.Toolkit;
 
 public class gestionEmpleados extends JDialog {
 
@@ -39,6 +41,8 @@ public class gestionEmpleados extends JDialog {
 		try {
 			gestionEmpleados dialog = new gestionEmpleados();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setLocationRelativeTo(null);
+			dialog.setUndecorated(true);
 			dialog.setVisible(true);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -49,111 +53,90 @@ public class gestionEmpleados extends JDialog {
 	 * Create the dialog.
 	 */
 	public gestionEmpleados() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(gestionEmpleados.class.getResource("/images/icon.png")));
 		setModal(true);
 		setResizable(false);
 		setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
-		setBounds(100, 100, 799, 481);
+		setBounds(100, 100, 890, 533);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPanel.setBackground(new Color(249, 220, 92));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		{
-			JPanel buttonPane = new JPanel();
-			buttonPane.setBounds(0, 406, 785, 38);
-			contentPanel.add(buttonPane);
-			buttonPane.setBackground(new Color(249, 220, 92));
-			buttonPane.setLayout(null);
-			{
-				JButton cancelButton = new JButton("Cerrar");
-				cancelButton.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						dispose();
-					}
-				});
-				cancelButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
-				cancelButton.setBounds(676, 0, 84, 33);
-				cancelButton.setActionCommand("Cancel");
-				buttonPane.add(cancelButton);
-			}
-		}
-		{
 			JLabel lblGestinDeEmpleados = new JLabel("GESTIÓN DE EMPLEADOS");
 			lblGestinDeEmpleados.setHorizontalAlignment(SwingConstants.CENTER);
-			lblGestinDeEmpleados.setFont(new Font("Tahoma", Font.PLAIN, 24));
-			lblGestinDeEmpleados.setBounds(217, 10, 398, 87);
+			lblGestinDeEmpleados.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 36));
+			lblGestinDeEmpleados.setBounds(0, 0, 856, 69);
 			contentPanel.add(lblGestinDeEmpleados);
 		}
 		{
-			JButton btnNewButton = new JButton("Alta empleados");
+			JButton btnNewButton = new JButton("REGISTRAR EMPLEADO");
+			btnNewButton.setBackground(new Color(128, 255, 0));
 			btnNewButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					alta_empleados alta_empleados = new alta_empleados();
 					alta_empleados.setVisible(true);
 				}
 			});
-			btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			btnNewButton.setBounds(121, 148, 189, 45);
+			btnNewButton.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 18));
+			btnNewButton.setBounds(292, 128, 270, 45);
 			contentPanel.add(btnNewButton);
 		}
 		{
-			JButton btnBajaEmpleados = new JButton("Baja empleados");
+			JButton btnBajaEmpleados = new JButton("ELIMINAR EMPLEADOS");
+			btnBajaEmpleados.setBackground(new Color(128, 255, 0));
 			btnBajaEmpleados.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					baja_empleados baja_empleados = new baja_empleados();
 					baja_empleados.setVisible(true);
 				}
 			});
-			btnBajaEmpleados.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			btnBajaEmpleados.setBounds(512, 148, 189, 45);
+			btnBajaEmpleados.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 18));
+			btnBajaEmpleados.setBounds(572, 128, 274, 45);
 			contentPanel.add(btnBajaEmpleados);
 		}
 		{
-			JButton btnModificarempleados = new JButton("Modificar empleados");
+			JButton btnModificarempleados = new JButton("MODIFICAR EMPLEADOS");
+			btnModificarempleados.setBackground(new Color(128, 255, 0));
 			btnModificarempleados.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					modificar_empleados modificar_empleados = new modificar_empleados();
 					modificar_empleados.setVisible(true);
 				}
 			});
-			btnModificarempleados.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			btnModificarempleados.setBounds(121, 264, 189, 45);
+			btnModificarempleados.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 18));
+			btnModificarempleados.setBounds(10, 128, 272, 45);
 			contentPanel.add(btnModificarempleados);
 		}
 		{
-			JButton btnConsultarEmpleados = new JButton("Consultar empleados");
+			JButton btnConsultarEmpleados = new JButton("CONSULTAR EMPLEADOS");
+			btnConsultarEmpleados.setBackground(new Color(128, 255, 0));
 			btnConsultarEmpleados.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					consulta_empleados consulta_empleados = new consulta_empleados();
 					consulta_empleados.setVisible(true);
 				}
 			});
-			btnConsultarEmpleados.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			btnConsultarEmpleados.setBounds(512, 264, 189, 45);
+			btnConsultarEmpleados.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 18));
+			btnConsultarEmpleados.setBounds(10, 72, 390, 45);
 			contentPanel.add(btnConsultarEmpleados);
-			
-			
-			{
-				JLabel lblTiempo = new JLabel("");
-				lblTiempo.setFont(new Font("Tahoma", Font.PLAIN, 18));
-				lblTiempo.setHorizontalAlignment(SwingConstants.CENTER);
-				lblTiempo.setBounds(99, 358, 580, 38);
-				contentPanel.add(lblTiempo);
-			}
 		}
 		
-		JButton btnConsultarFichajes = new JButton("Consultar fichajes");
+		JButton btnConsultarFichajes = new JButton("CONSULTAR FICHAJES");
+		btnConsultarFichajes.setBackground(new Color(128, 255, 0));
 		btnConsultarFichajes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				consulta_fichajes consulta_fichajes = new consulta_fichajes();
 				consulta_fichajes.setVisible(true);
 			}
 		});
-		btnConsultarFichajes.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnConsultarFichajes.setBounds(316, 202, 189, 45);
+		btnConsultarFichajes.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 18));
+		btnConsultarFichajes.setBounds(410, 72, 436, 45);
 		contentPanel.add(btnConsultarFichajes);
 		
-		JButton btnInformeDeCargas = new JButton("Informe de cargas horarias");
+		JButton btnInformeDeCargas = new JButton("GENERAR INFORME A TRAVÉS DE FECHA");
+		btnInformeDeCargas.setBackground(new Color(128, 128, 192));
 		btnInformeDeCargas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String fecha = txtfecha.getText();
@@ -163,16 +146,21 @@ public class gestionEmpleados extends JDialog {
                 }
                 
 				// Abre el visor de Jasper Reports que nos permite descargarlo
-				System.setProperty("net.sf.jasperreports.debug", "true");
-
-				Map <String, Object> parametros = new HashMap();
-				parametros.put ("Parameter1", Integer.parseInt(fecha));
-				JasperPrint jasperPrintWindow = null;
+                JasperPrint jasperPrintWindow = null;
+				
 				try {
+					System.setProperty("net.sf.jasperreports.debug", "true");
+
+					Map <String, Object> parametros = new HashMap();
+					
+					String partes[] = fecha.split("-");
+					
+					
+					parametros.put ("anio", (Object) Integer.parseInt(partes[0]));
+					parametros.put("mes", Integer.parseInt(partes[1]));
 				    jasperPrintWindow = JasperFillManager.fillReport("src\\informes\\InformeCargaHoraria.jasper", parametros, conexion.getInstancia().getCon());
 				} catch (JRException e1) {
 				    System.err.println("Error al generar el informe: " + e1.getMessage());
-				    e1.printStackTrace();
 				}
 
 				/*
@@ -184,13 +172,39 @@ public class gestionEmpleados extends JDialog {
 				 jasperViewer.setVisible(true); 
 			}
 		});
-		btnInformeDeCargas.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnInformeDeCargas.setBounds(169, 321, 242, 27);
+		btnInformeDeCargas.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 18));
+		btnInformeDeCargas.setBounds(209, 270, 488, 69);
 		contentPanel.add(btnInformeDeCargas);
 		
 		txtfecha = new JTextField();
-		txtfecha.setBounds(434, 321, 201, 27);
+		txtfecha.setFont(new Font("Dialog", Font.PLAIN, 18));
+		txtfecha.setBounds(287, 232, 410, 27);
 		contentPanel.add(txtfecha);
 		txtfecha.setColumns(10);
+		{
+			JLabel lblNewLabel = new JLabel("Fecha:");
+			lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
+			lblNewLabel.setBounds(209, 232, 147, 27);
+			contentPanel.add(lblNewLabel);
+		}
+		
+		JButton btnCerrar = new JButton("Cerrar");
+		btnCerrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		btnCerrar.setForeground(Color.BLACK);
+		btnCerrar.setFont(new Font("Tahoma", Font.ITALIC, 24));
+		btnCerrar.setBackground(new Color(231, 24, 24));
+		btnCerrar.setBounds(747, 444, 117, 39);
+		contentPanel.add(btnCerrar);
+		{
+			JLabel lblNewLabel_2 = new JLabel("");
+			lblNewLabel_2.setIcon(new ImageIcon(gestionEmpleados.class.getResource("/images/icon.png")));
+			lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+			lblNewLabel_2.setBounds(0, 329, 160, 165);
+			contentPanel.add(lblNewLabel_2);
+		}
 	}
 }
