@@ -9,9 +9,8 @@
 	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
 	<style name="Column header" forecolor="#FFFFFF" fontName="Arial" fontSize="12" isBold="true"/>
 	<style name="Detail" fontName="Arial" fontSize="12"/>
-	<parameter name="Parameter1" class="java.lang.String">
-		<defaultValueExpression><![CDATA[2023-03]]></defaultValueExpression>
-	</parameter>
+	<parameter name="anio" class="java.lang.String"/>
+	<parameter name="mes" class="java.lang.String"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT 
     e.id_empleado,
@@ -23,9 +22,11 @@ FROM dbo.fichajes f
 JOIN dbo.empleados e ON f.id_empleado = e.id_empleado
 WHERE f.hora_entrada IS NOT NULL 
     AND f.hora_salida IS NOT NULL
-    AND FORMAT(f.fecha, 'yyyy-MM') = $P{Parameter1}
+    AND YEAR(f.fecha) = $P{anio}
+    AND MONTH(f.fecha) = $P{mes}
 GROUP BY e.id_empleado, e.nombre, e.apellidos, FORMAT(f.fecha, 'yyyy-MM')
-ORDER BY e.id_empleado, mes;]]>
+ORDER BY e.id_empleado, mes;
+]]>
 	</queryString>
 	<field name="id_empleado" class="java.lang.Integer">
 		<property name="com.jaspersoft.studio.field.name" value="id_empleado"/>

@@ -162,7 +162,7 @@ public class InicioSesion extends JFrame {
 		});
 		cbShowPassword.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		cbShowPassword.setBackground(new Color(249, 220, 92));
-		cbShowPassword.setBounds(135, 288, 177, 23);
+		cbShowPassword.setBounds(135, 288, 226, 23);
 		contentPane.add(cbShowPassword);
 	}
 }
