@@ -77,12 +77,12 @@ public class Terraza extends JDialog {
 		
 		JLabel lblCurrentTemperature = new JLabel(currentTemperature + "ºC");
 		lblCurrentTemperature.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 36));
-		lblCurrentTemperature.setBounds(637, 411, 202, 81);
+		lblCurrentTemperature.setBounds(467, 411, 202, 81);
 		contentPanel.add(lblCurrentTemperature);
 		
 		JLabel lblAvgTemperature = new JLabel(avgTemperature + "ºC");
 		lblAvgTemperature.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 36));
-		lblAvgTemperature.setBounds(637, 319, 202, 81);
+		lblAvgTemperature.setBounds(467, 319, 202, 81);
 		contentPanel.add(lblAvgTemperature);
 		
 		JLabel lblAvgRain = new JLabel(avgRain + "%");
