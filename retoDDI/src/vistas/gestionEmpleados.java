@@ -132,11 +132,9 @@ public class gestionEmpleados extends JDialog {
 			btnConsultarEmpleados.setBounds(512, 264, 189, 45);
 			contentPanel.add(btnConsultarEmpleados);
 			
-			TiempoMunicipio tiempo = new TiempoMunicipio(48,48020);
-			tiempo.cargarDatos();
 			
 			{
-				JLabel lblTiempo = new JLabel(tiempo.getEstadoCielo());
+				JLabel lblTiempo = new JLabel("");
 				lblTiempo.setFont(new Font("Tahoma", Font.PLAIN, 18));
 				lblTiempo.setHorizontalAlignment(SwingConstants.CENTER);
 				lblTiempo.setBounds(99, 358, 580, 38);

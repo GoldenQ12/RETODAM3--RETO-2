@@ -9,9 +9,6 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 
 import modeloDAO.Weather_DAO;
 import javax.swing.JLabel;
@@ -48,7 +45,6 @@ public class Terraza extends JDialog {
 	 * Create the dialog.
 	 */
 	public Terraza() {
-		loadData();
 		setBounds(100, 100, 899, 667);
 		getContentPane().setLayout(null);
 		contentPanel.setBounds(0, 0, 883, 628);
@@ -82,69 +78,5 @@ public class Terraza extends JDialog {
 		contentPanel.add(lblNewLabel_1_2);	
 	}
 	
-	public static void loadData() {
-		try {
-			String xml = weather.fetchXmlAsString("http://localhost/uploads/weather_data.xml");
-			
-            // Create ObjectMapper instance
-
-            XmlMapper xmlMapper = new XmlMapper();
-
-            // Convert XML to JsonNode
-            JsonNode jsonNode = xmlMapper.readTree(xml.getBytes());
-
-            // Create ObjectMapper instance for JSON
-            ObjectMapper objectMapper = new ObjectMapper();
-            
-
-            String json = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(jsonNode);
-            JsonNode temperatureNodes = jsonNode.path("hourly").path("temperature_2m");
-            JsonNode rainNodes = jsonNode.path("hourly").path("rain");
-            
-            city = jsonNode.findPath("City").asText();
-            ArrayList<Integer> temperatures = new ArrayList<>();
-            for (JsonNode tempNode : temperatureNodes) {
-                // Convert the temperature to Integer and add to the list
-                temperatures.add(tempNode.asInt());
-            }
-            for (Integer temperature : temperatures) {
-            	avgTemperature += temperature;
-            }
-            avgTemperature = (int) (avgTemperature / temperatures.size());
-            currentTemperature = jsonNode.path("current").path("temperature_2m").asInt();
-            ArrayList<Integer> rain = new ArrayList<>();
-            for (JsonNode rainNode : rainNodes) {
-                // Convert the temperature to Integer and add to the list
-                rain.add(rainNode.asInt());
-            }
-            for (Integer rainCurrent : rain) {
-            	avgRain += rainCurrent;
-            }
-            if (avgRain == 0) {
-            	avgRain = 10;
-            } else {
-                avgRain = (int) (avgRain / rain.size());
-            }
-            if (avgRain > 50 && avgRain < 75) {
-            	icon = new ImageIcon("images/heavy-rain.png");
-            } else if(avgRain > 75) {
-            	icon = new ImageIcon("images/storm.png");
-            } else {
-            	icon = new ImageIcon("images/cloud.png");
-            }
-            if (avgTemperature > 15 ) {
-            	icon = new ImageIcon("images/sun.png");
-            }
-            
-            
-
-            // Print the JSON string
-            System.out.println(temperatures);
-            System.out.println(city);
-            
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-	}
+	
 }

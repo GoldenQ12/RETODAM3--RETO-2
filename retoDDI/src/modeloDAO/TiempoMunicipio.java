@@ -5,8 +5,6 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 
 public class TiempoMunicipio {
     private int codProvincia;
@@ -41,16 +39,6 @@ public class TiempoMunicipio {
             }
             in.close();
 
-            // Parsear el JSON con Gson
-            Gson gson = new Gson();
-            JsonObject jsonResponse = gson.fromJson(response.toString(), JsonObject.class);
-
-            // Extraer información del JSON
-            JsonObject municipio = jsonResponse.getAsJsonObject("municipio");
-            this.nombreMunicipio = municipio.get("NOMBRE").getAsString();
-
-            JsonObject estadoCieloJson = jsonResponse.getAsJsonObject("stateSky");
-            this.estadoCielo = estadoCieloJson.get("description").getAsString();
 
         } catch (Exception e) {
             e.printStackTrace();

@@ -21,6 +21,9 @@ import java.awt.Color;
 import modeloDAO.empleadosDAO;
 import modeloDTO.empleadosDTO;
 import javax.swing.JPasswordField;
+import javax.swing.ImageIcon;
+import javax.swing.JCheckBox;
+import java.awt.Toolkit;
 
 public class InicioSesion extends JFrame {
 
@@ -28,7 +31,6 @@ public class InicioSesion extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtemail;
 	static empleadosDAO empleadoDAO = new empleadosDAO();
-	private JLabel lblError;
 	private JPasswordField pfPass;
 	/**
 	 * Launch the application.
@@ -38,7 +40,10 @@ public class InicioSesion extends JFrame {
 			public void run() {
 				try {
 					InicioSesion frame = new InicioSesion();
+					frame.setUndecorated(true);
 					frame.setVisible(true);
+					frame.setLocationRelativeTo(null);
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -50,10 +55,12 @@ public class InicioSesion extends JFrame {
 	 * Create the frame.
 	 */
 	public InicioSesion() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(InicioSesion.class.getResource("/images/icon.png")));
 		setResizable(false);
 		setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
-		setBounds(100, 100, 555, 488);
+		setBounds(100, 100, 709, 584);
 		contentPane = new JPanel();
+		contentPane.setForeground(new Color(0, 0, 0));
 		contentPane.setBackground(new Color(249, 220, 92));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -61,32 +68,34 @@ public class InicioSesion extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("INICIO DE SESIÓN");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 38));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(162, 10, 236, 87);
+		lblNewLabel.setBounds(135, 0, 388, 165);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Email:");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_1.setBounds(81, 155, 81, 33);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		lblNewLabel_1.setBounds(135, 176, 82, 33);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Contraseña:");
-		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_1_1.setBounds(81, 211, 102, 33);
+		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		lblNewLabel_1_1.setBounds(135, 238, 177, 33);
 		contentPane.add(lblNewLabel_1_1);
 		
 		txtemail = new JTextField();
-		txtemail.setBounds(162, 160, 285, 28);
+		txtemail.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		txtemail.setBounds(265, 181, 258, 28);
 		contentPane.add(txtemail);
 		txtemail.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Iniciar sesión");
+		btnNewButton.setBackground(new Color(128, 128, 255));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String email = txtemail.getText();
 				String pass = pfPass.getText();
-				ArrayList<empleadosDTO> lista = new ArrayList<>();
+				ArrayList<empleadosDTO> lista = new ArrayList<empleadosDTO>();
 				
 				if (txtemail.getText().isEmpty() || pfPass.getText().isEmpty()) {
 					JOptionPane.showMessageDialog(null, "Por favor, rellene todos los campos.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -97,45 +106,63 @@ public class InicioSesion extends JFrame {
 				for(empleadosDTO emp : lista) {
 					if (emp.getEmail().equals(email) && emp.getPassword().equals(pass)) {
 						if (empleadoDAO.obtenerCargoPorEmailYPassword(email, pass).equals("gerente")) {
-							lblError.setText(null);
 							gestionEmpleados gestionEmpleados = new gestionEmpleados();
 							gestionEmpleados.setVisible(true);
 						}else {
-							lblError.setText(null);
-							
 							gestionFichajes gestionFichajes = new gestionFichajes(email);
 							gestionFichajes.setVisible(true);
 						}
 					}else {
-						txtemail.setText(null);
-						pfPass.setText(null);
-						lblError.setText("Usuario o contraseña incorrectas");
+						JOptionPane.showMessageDialog(null, "Contraseña o usuario incorrecto", "Error", JOptionPane.ERROR_MESSAGE);
+						return;
 					}
 				}
 			}
 		});
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnNewButton.setBounds(205, 306, 148, 59);
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 24));
+		btnNewButton.setBounds(135, 340, 388, 98);
 		contentPane.add(btnNewButton);
 		
 		JButton btnCerrar = new JButton("Cerrar");
+		btnCerrar.setForeground(new Color(0, 0, 0));
+		btnCerrar.setBackground(new Color(231, 24, 24));
 		btnCerrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dispose();
+				int respuesta = JOptionPane.showConfirmDialog(
+						null, 
+						"Estas seguro que quieres salir", 
+						"Confirmación", 
+						JOptionPane.YES_NO_OPTION, 
+						JOptionPane.WARNING_MESSAGE);
+				if (respuesta == JOptionPane.YES_OPTION) {
+						dispose();
+					} 
 			}
 		});
-		btnCerrar.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnCerrar.setBounds(400, 384, 117, 39);
+		btnCerrar.setFont(new Font("Tahoma", Font.ITALIC, 24));
+		btnCerrar.setBounds(566, 495, 117, 39);
 		contentPane.add(btnCerrar);
 		
-		lblError = new JLabel("");
-		lblError.setHorizontalAlignment(SwingConstants.CENTER);
-		lblError.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblError.setBounds(81, 254, 345, 33);
-		contentPane.add(lblError);
-		
 		pfPass = new JPasswordField();
-		pfPass.setBounds(179, 215, 288, 30);
+		pfPass.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		pfPass.setBounds(265, 242, 258, 30);
 		contentPane.add(pfPass);
+		
+		JLabel lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setIcon(new ImageIcon(InicioSesion.class.getResource("/images/icon.png")));
+		lblNewLabel_2.setBounds(533, 0, 160, 165);
+		contentPane.add(lblNewLabel_2);
+		
+		JCheckBox cbShowPassword = new JCheckBox("Mostrar contraseña");
+		cbShowPassword.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				pfPass.setEchoChar(cbShowPassword.isSelected() ? (char) 0 : '●');
+			}
+		});
+		cbShowPassword.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		cbShowPassword.setBackground(new Color(249, 220, 92));
+		cbShowPassword.setBounds(135, 288, 177, 23);
+		contentPane.add(cbShowPassword);
 	}
 }
