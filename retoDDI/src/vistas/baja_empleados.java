@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import modeloDAO.empleadosDAO;
+import modeloDAO.fichajesDAO;
 import modeloDTO.empleadosDTO;
 
 import java.awt.Color;
@@ -29,6 +30,7 @@ public class baja_empleados extends JDialog {
 	private static JTextField txtcod;
 	private static JLabel lblnomb, lblapelb, lblemailb, lblpassb, lblnumb, lblcargob, lblestadob, lblfechab;
 	private static empleadosDAO empe = new empleadosDAO();
+	private static fichajesDAO fich = new fichajesDAO();
 	
 	/**
 	 * Launch the application.
@@ -243,7 +245,7 @@ public class baja_empleados extends JDialog {
 						
 						empleadosDAO emp = new empleadosDAO();
 						int cod = Integer.parseInt(txtcod.getText());
-						if (emp.borrar(cod)) {
+						if (fich.borrarEmp(cod) && emp.borrar(cod)) {
 							JOptionPane.showMessageDialog(null, "Empleado eliminado exitosamente.");
 							txtcod.setText(null);
 							lblnomb.setText(null);

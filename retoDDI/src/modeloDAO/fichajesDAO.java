@@ -13,6 +13,7 @@ public class fichajesDAO implements Patron_DAO<fichajesDTO> {
 
     private static final String SQL_INSERT = "INSERT INTO fichajes (id_empleado, fecha, hora_entrada, hora_salida, modo) VALUES (?, ?, ?, ?, ?)";
     private static final String SQL_DELETE = "DELETE FROM fichajes WHERE id_fichaje = ?";
+    private static final String SQL_DELETE_EMP = "DELETE FROM fichajes WHERE id_empleado = ?";
     private static final String SQL_UPDATE = "UPDATE fichajes SET id_empleado = ?, fecha = ?, hora_entrada = ?, hora_salida = ?, modo = ? WHERE id_fichaje = ?";
     private static final String SQL_SELECT = "SELECT * FROM fichajes";
     private static final String SQL_SELECT_BY_ID = "SELECT * FROM fichajes WHERE id_fichaje = ?";
@@ -39,6 +40,16 @@ public class fichajesDAO implements Patron_DAO<fichajesDTO> {
     @Override
     public boolean borrar(Object pk) {
         try (PreparedStatement ps = con.getCon().prepareStatement(SQL_DELETE)) {
+            ps.setInt(1, (int) pk);
+            return ps.executeUpdate() > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+    
+    public boolean borrarEmp(Object pk) {
+        try (PreparedStatement ps = con.getCon().prepareStatement(SQL_DELETE_EMP)) {
             ps.setInt(1, (int) pk);
             return ps.executeUpdate() > 0;
         } catch (Exception e) {
