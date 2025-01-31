@@ -58,14 +58,14 @@ public class gestionFichajes extends JDialog {
 		rdbtnPresencial.setBackground(new Color(249, 220, 92));
 		rdbtnPresencial.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		buttonGroup.add(rdbtnPresencial);
-		rdbtnPresencial.setBounds(20, 264, 131, 30);
+		rdbtnPresencial.setBounds(20, 264, 192, 30);
 		contentPanel.add(rdbtnPresencial);
 		
 		JRadioButton rdbtnTeletrabajo = new JRadioButton("Teletrabajo");
 		rdbtnTeletrabajo.setBackground(new Color(249, 220, 92));
 		rdbtnTeletrabajo.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		buttonGroup.add(rdbtnTeletrabajo);
-		rdbtnTeletrabajo.setBounds(159, 261, 194, 37);
+		rdbtnTeletrabajo.setBounds(214, 261, 194, 37);
 		contentPanel.add(rdbtnTeletrabajo);
 		{
 			btnFichar = new JButton("FICHAR");
