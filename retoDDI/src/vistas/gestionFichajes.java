@@ -32,6 +32,7 @@ public class gestionFichajes extends JDialog {
 	private static empleadosDAO emp = new empleadosDAO();
 	private static fichajesDAO fichajesDAO = new fichajesDAO();
 	private final ButtonGroup buttonGroup = new ButtonGroup();
+	private JButton btnFichar;
 
 	/**
 	 * Create the dialog.
@@ -47,46 +48,27 @@ public class gestionFichajes extends JDialog {
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		{
-			JPanel buttonPane = new JPanel();
-			buttonPane.setBounds(0, 406, 783, 39);
-			contentPanel.add(buttonPane);
-			buttonPane.setBackground(new Color(249, 220, 92));
-			buttonPane.setLayout(null);
-			{
-				JButton cancelButton = new JButton("Cerrar");
-				cancelButton.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						dispose();
-					}
-				});
-				cancelButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
-				cancelButton.setActionCommand("Cancel");
-				cancelButton.setBounds(689, 0, 84, 33);
-				buttonPane.add(cancelButton);
-			}
-		}
-		{
 			JLabel lblGestinDeFichajes = new JLabel("GESTIÓN DE FICHAJES");
 			lblGestinDeFichajes.setHorizontalAlignment(SwingConstants.CENTER);
-			lblGestinDeFichajes.setFont(new Font("Tahoma", Font.PLAIN, 24));
-			lblGestinDeFichajes.setBounds(204, 10, 398, 87);
+			lblGestinDeFichajes.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 38));
+			lblGestinDeFichajes.setBounds(0, 0, 781, 98);
 			contentPanel.add(lblGestinDeFichajes);
 		}
 		JRadioButton rdbtnPresencial = new JRadioButton("Presencial");
 		rdbtnPresencial.setBackground(new Color(249, 220, 92));
-		rdbtnPresencial.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		rdbtnPresencial.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		buttonGroup.add(rdbtnPresencial);
-		rdbtnPresencial.setBounds(187, 290, 103, 21);
+		rdbtnPresencial.setBounds(20, 264, 131, 30);
 		contentPanel.add(rdbtnPresencial);
 		
 		JRadioButton rdbtnTeletrabajo = new JRadioButton("Teletrabajo");
 		rdbtnTeletrabajo.setBackground(new Color(249, 220, 92));
-		rdbtnTeletrabajo.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		rdbtnTeletrabajo.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		buttonGroup.add(rdbtnTeletrabajo);
-		rdbtnTeletrabajo.setBounds(187, 313, 103, 21);
+		rdbtnTeletrabajo.setBounds(159, 261, 194, 37);
 		contentPanel.add(rdbtnTeletrabajo);
 		{
-			JButton btnFichar = new JButton("Fichar");
+			btnFichar = new JButton("FICHAR");
 			btnFichar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					empleadosDTO empe = emp.buscarPorEmail(email);
@@ -110,14 +92,16 @@ public class gestionFichajes extends JDialog {
 					}else {
 		                JOptionPane.showMessageDialog(null, "Error al registrar el fichaje.", "Error", JOptionPane.ERROR_MESSAGE);
 		            }
+					btnFichar.setEnabled(false);
 				}
 			});
-			btnFichar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-			btnFichar.setBounds(139, 164, 204, 106);
+			btnFichar.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 32));
+			btnFichar.setBounds(10, 151, 343, 106);
 			contentPanel.add(btnFichar);
 		}
 		{
-			JButton btnFinalizarFichaje = new JButton("Finalizar fichaje");
+			JButton btnFinalizarFichaje = new JButton("FINALIZAR FICHAJE");
+			btnFinalizarFichaje.setEnabled(false);
 			btnFinalizarFichaje.addActionListener(new ActionListener() {
 			    public void actionPerformed(ActionEvent e) {
 			        empleadosDTO empleado = emp.buscarPorEmail(email);
@@ -129,12 +113,25 @@ public class gestionFichajes extends JDialog {
 			        } else {
 			            JOptionPane.showMessageDialog(null, "Error al finalizar el fichaje. Verifique si ya está finalizado.", "Error", JOptionPane.ERROR_MESSAGE);
 			        }
+			        btnFichar.setEnabled(true);
 			    }
 			});
 
-			btnFinalizarFichaje.setFont(new Font("Tahoma", Font.PLAIN, 20));
-			btnFinalizarFichaje.setBounds(467, 164, 204, 106);
+			btnFinalizarFichaje.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 32));
+			btnFinalizarFichaje.setBounds(363, 151, 389, 106);
 			contentPanel.add(btnFinalizarFichaje);
 		}
+		
+		JButton btnCerrar = new JButton("Cerrar");
+		btnCerrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		btnCerrar.setForeground(Color.BLACK);
+		btnCerrar.setFont(new Font("Tahoma", Font.ITALIC, 24));
+		btnCerrar.setBackground(new Color(231, 24, 24));
+		btnCerrar.setBounds(654, 393, 117, 39);
+		contentPanel.add(btnCerrar);
 	}
 }
