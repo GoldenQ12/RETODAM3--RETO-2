@@ -33,6 +33,7 @@ public class gestionFichajes extends JDialog {
 	private static fichajesDAO fichajesDAO = new fichajesDAO();
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private JButton btnFichar;
+	private JButton btnFinalizarFichaje;
 
 	/**
 	 * Create the dialog.
@@ -93,6 +94,7 @@ public class gestionFichajes extends JDialog {
 		                JOptionPane.showMessageDialog(null, "Error al registrar el fichaje.", "Error", JOptionPane.ERROR_MESSAGE);
 		            }
 					btnFichar.setEnabled(false);
+					btnFinalizarFichaje.setEnabled(true);
 				}
 			});
 			btnFichar.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 32));
@@ -100,7 +102,7 @@ public class gestionFichajes extends JDialog {
 			contentPanel.add(btnFichar);
 		}
 		{
-			JButton btnFinalizarFichaje = new JButton("FINALIZAR FICHAJE");
+			btnFinalizarFichaje = new JButton("FINALIZAR FICHAJE");
 			btnFinalizarFichaje.setEnabled(false);
 			btnFinalizarFichaje.addActionListener(new ActionListener() {
 			    public void actionPerformed(ActionEvent e) {
@@ -114,6 +116,7 @@ public class gestionFichajes extends JDialog {
 			            JOptionPane.showMessageDialog(null, "Error al finalizar el fichaje. Verifique si ya está finalizado.", "Error", JOptionPane.ERROR_MESSAGE);
 			        }
 			        btnFichar.setEnabled(true);
+			        btnFinalizarFichaje.setEnabled(false);
 			    }
 			});
 
