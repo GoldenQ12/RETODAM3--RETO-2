@@ -28,6 +28,7 @@ import javax.swing.JTextField;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
+import javax.swing.ImageIcon;
 
 public class consulta_empleados extends JDialog {
 
@@ -85,13 +86,13 @@ public class consulta_empleados extends JDialog {
 		{
 			JLabel lblModificarDeEmpleados = new JLabel("CONSULTAR EMPLEADOS");
 			lblModificarDeEmpleados.setHorizontalAlignment(SwingConstants.CENTER);
-			lblModificarDeEmpleados.setFont(new Font("Tahoma", Font.PLAIN, 24));
-			lblModificarDeEmpleados.setBounds(298, 10, 398, 73);
+			lblModificarDeEmpleados.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 38));
+			lblModificarDeEmpleados.setBounds(0, 0, 985, 83);
 			contentPanel.add(lblModificarDeEmpleados);
 		}
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 128, 965, 249);
+		scrollPane.setBounds(10, 135, 965, 249);
 		contentPanel.add(scrollPane);
 		
 		table = new JTable();
@@ -105,15 +106,15 @@ public class consulta_empleados extends JDialog {
 		scrollPane.setViewportView(table);
 		{
 			JLabel lblNewLabel = new JLabel("Ordenar por:");
-			lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
-			lblNewLabel.setBounds(147, 85, 94, 25);
+			lblNewLabel.setFont(new Font("Dialog", Font.BOLD, 18));
+			lblNewLabel.setBounds(10, 80, 123, 39);
 			contentPanel.add(lblNewLabel);
 		}
 		
 		JComboBox cbOrdenar = new JComboBox();
-		cbOrdenar.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 14));
+		cbOrdenar.setFont(new Font("Dialog", Font.BOLD, 18));
 		cbOrdenar.setModel(new DefaultComboBoxModel(new String[] {"Nombre ⬆️", "Nombre ⬇️", "Cargo ⬆️", "Cargo ⬇️", "Estado ⬆️", "Estado ⬇️"}));
-		cbOrdenar.setBounds(250, 85, 169, 25);
+		cbOrdenar.setBounds(142, 80, 169, 39);
 		cbOrdenar.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent e) {
 		        String seleccion = (String) cbOrdenar.getSelectedItem();
@@ -154,36 +155,15 @@ public class consulta_empleados extends JDialog {
 		contentPanel.add(cbOrdenar);
 		
 		txtbuscar = new JTextField();
-		txtbuscar.setBounds(482, 82, 214, 35);
+		txtbuscar.setFont(new Font("Dialog", Font.BOLD, 18));
+		txtbuscar.setBounds(777, 80, 139, 44);
 		txtbuscar.setColumns(10);
-
-		// Placeholder: "Buscar por nombre"
-		txtbuscar.setText("Buscar por nombre");
-		txtbuscar.setForeground(Color.GRAY);
-
-		// Listener para manejar el comportamiento del placeholder
-		txtbuscar.addFocusListener(new FocusAdapter() {
-		    @Override
-		    public void focusGained(FocusEvent e) {
-		        if (txtbuscar.getText().equals("Buscar por nombre")) {
-		            txtbuscar.setText("");
-		            txtbuscar.setForeground(Color.BLACK);
-		        }
-		    }
-
-		    @Override
-		    public void focusLost(FocusEvent e) {
-		        if (txtbuscar.getText().isEmpty()) {
-		            txtbuscar.setText("Buscar por nombre");
-		            txtbuscar.setForeground(Color.GRAY);
-		        }
-		    }
-		});
 		contentPanel.add(txtbuscar);
 
 		txtbuscar.setColumns(10);
 		
-		JButton btnBuscar = new JButton("Buscar");
+		JButton btnBuscar = new JButton("");
+		btnBuscar.setIcon(new ImageIcon(consulta_empleados.class.getResource("/images/searchIcon.png")));
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 		        String textoBuscar = txtbuscar.getText().trim();
@@ -191,11 +171,9 @@ public class consulta_empleados extends JDialog {
 		        String campo = "";
 
 		        if (textoBuscar.isEmpty()) {
-		            JOptionPane.showMessageDialog(null, "Por favor, ingrese un texto para buscar.", "Advertencia", JOptionPane.WARNING_MESSAGE);
-		            return;
-		        }
-
-		        switch (opcion) {
+		        	cargarDatosEnTabla();
+		        } else {
+		        	switch (opcion) {
 		            case "Nombre":
 		                campo = "nombre";
 		                break;
@@ -205,14 +183,19 @@ public class consulta_empleados extends JDialog {
 		            default:
 		                JOptionPane.showMessageDialog(null, "Opción no válida.", "Error", JOptionPane.ERROR_MESSAGE);
 		                return;
+		        	}
+		        	cargarDatosFiltrados(campo, textoBuscar);
 		        }
+		        
 
-		        cargarDatosFiltrados(campo, textoBuscar);
+		        
+
+		        
 		    }
 		});
-		btnBuscar.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnBuscar.setFont(new Font("Dialog", Font.BOLD, 18));
 		btnBuscar.setActionCommand("Cancel");
-		btnBuscar.setBounds(719, 81, 84, 33);
+		btnBuscar.setBounds(922, 80, 53, 44);
 		contentPanel.add(btnBuscar);
 		
 		cargarDatosEnTabla();
@@ -287,7 +270,7 @@ public class consulta_empleados extends JDialog {
 	    
 	    if (empleados.isEmpty()) {
 	        JOptionPane.showMessageDialog(null, "No se encontraron resultados para la búsqueda.", "Información", JOptionPane.INFORMATION_MESSAGE);
-	        return;
+	        
 	    }
 
 	    for (empleadosDTO empleado : empleados) {

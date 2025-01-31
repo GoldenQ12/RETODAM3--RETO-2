@@ -60,69 +60,50 @@ public class baja_empleados extends JDialog {
 			{
 				JLabel lblBajaDeEmpleados = new JLabel("BAJA DE EMPLEADOS");
 				lblBajaDeEmpleados.setHorizontalAlignment(SwingConstants.CENTER);
-				lblBajaDeEmpleados.setFont(new Font("Tahoma", Font.PLAIN, 24));
-				lblBajaDeEmpleados.setBounds(186, 0, 398, 87);
+				lblBajaDeEmpleados.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 38));
+				lblBajaDeEmpleados.setBounds(0, 0, 720, 87);
 				contentPanel.add(lblBajaDeEmpleados);
 			}
 			{
-				JPanel buttonPane = new JPanel();
-				buttonPane.setLayout(null);
-				buttonPane.setBackground(new Color(249, 220, 92));
-				buttonPane.setBounds(0, 464, 720, 40);
-				contentPanel.add(buttonPane);
-				{
-					JButton cancelButton = new JButton("Cerrar");
-					cancelButton.addActionListener(new ActionListener() {
-						public void actionPerformed(ActionEvent e) {
-							dispose();
-						}
-					});
-					cancelButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
-					cancelButton.setActionCommand("Cancel");
-					cancelButton.setBounds(612, 0, 84, 33);
-					buttonPane.add(cancelButton);
-				}
-			}
-			{
 				JLabel lblNombre = new JLabel("Nombre:");
-				lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 15));
-				lblNombre.setBounds(48, 154, 71, 30);
+				lblNombre.setFont(new Font("Dialog", Font.PLAIN, 18));
+				lblNombre.setBounds(32, 154, 84, 30);
 				contentPanel.add(lblNombre);
 			}
 			{
 				JLabel lblApellido = new JLabel("Apellido:");
-				lblApellido.setFont(new Font("Tahoma", Font.PLAIN, 15));
-				lblApellido.setBounds(48, 214, 71, 30);
+				lblApellido.setFont(new Font("Dialog", Font.PLAIN, 18));
+				lblApellido.setBounds(32, 214, 84, 30);
 				contentPanel.add(lblApellido);
 			}
 			{
 				JLabel lblEmail = new JLabel("Email:");
-				lblEmail.setFont(new Font("Tahoma", Font.PLAIN, 15));
-				lblEmail.setBounds(48, 269, 63, 30);
+				lblEmail.setFont(new Font("Dialog", Font.PLAIN, 18));
+				lblEmail.setBounds(32, 269, 71, 30);
 				contentPanel.add(lblEmail);
 			}
 			{
 				JLabel lblNTelfono = new JLabel("Nº Teléfono:");
-				lblNTelfono.setFont(new Font("Tahoma", Font.PLAIN, 15));
-				lblNTelfono.setBounds(377, 160, 105, 30);
+				lblNTelfono.setFont(new Font("Dialog", Font.PLAIN, 18));
+				lblNTelfono.setBounds(361, 160, 121, 30);
 				contentPanel.add(lblNTelfono);
 			}
 			{
 				JLabel lblContrasea = new JLabel("Contraseña:");
-				lblContrasea.setFont(new Font("Tahoma", Font.PLAIN, 15));
-				lblContrasea.setBounds(377, 217, 105, 30);
+				lblContrasea.setFont(new Font("Dialog", Font.PLAIN, 18));
+				lblContrasea.setBounds(361, 217, 121, 30);
 				contentPanel.add(lblContrasea);
 			}
 			{
 				JLabel lblCargo = new JLabel("Cargo:");
-				lblCargo.setFont(new Font("Tahoma", Font.PLAIN, 15));
-				lblCargo.setBounds(377, 269, 63, 30);
+				lblCargo.setFont(new Font("Dialog", Font.PLAIN, 18));
+				lblCargo.setBounds(361, 269, 121, 30);
 				contentPanel.add(lblCargo);
 			}
 			
 			{
 				lblnomb = new JLabel("");
-				lblnomb.setFont(new Font("Tahoma", Font.PLAIN, 14));
+				lblnomb.setFont(new Font("Tahoma", Font.PLAIN, 18));
 				lblnomb.setBackground(new Color(50, 205, 50));
 				lblnomb.setOpaque(true);
 				lblnomb.setBounds(129, 157, 205, 30);
@@ -131,7 +112,7 @@ public class baja_empleados extends JDialog {
 			{
 				lblapelb = new JLabel("");
 				lblapelb.setOpaque(true);
-				lblapelb.setFont(new Font("Tahoma", Font.PLAIN, 14));
+				lblapelb.setFont(new Font("Tahoma", Font.PLAIN, 18));
 				lblapelb.setBackground(new Color(50, 205, 50));
 				lblapelb.setBounds(129, 214, 205, 30);
 				contentPanel.add(lblapelb);
@@ -139,15 +120,15 @@ public class baja_empleados extends JDialog {
 			{
 				lblemailb = new JLabel("");
 				lblemailb.setOpaque(true);
-				lblemailb.setFont(new Font("Tahoma", Font.PLAIN, 14));
+				lblemailb.setFont(new Font("Tahoma", Font.PLAIN, 18));
 				lblemailb.setBackground(new Color(50, 205, 50));
-				lblemailb.setBounds(104, 269, 230, 30);
+				lblemailb.setBounds(129, 269, 225, 30);
 				contentPanel.add(lblemailb);
 			}
 			{
 				lblnumb = new JLabel("");
 				lblnumb.setOpaque(true);
-				lblnumb.setFont(new Font("Tahoma", Font.PLAIN, 14));
+				lblnumb.setFont(new Font("Tahoma", Font.PLAIN, 18));
 				lblnumb.setBackground(new Color(50, 205, 50));
 				lblnumb.setBounds(481, 157, 205, 30);
 				contentPanel.add(lblnumb);
@@ -155,7 +136,7 @@ public class baja_empleados extends JDialog {
 			{
 				lblpassb = new JLabel("");
 				lblpassb.setOpaque(true);
-				lblpassb.setFont(new Font("Tahoma", Font.PLAIN, 14));
+				lblpassb.setFont(new Font("Tahoma", Font.PLAIN, 18));
 				lblpassb.setBackground(new Color(50, 205, 50));
 				lblpassb.setBounds(481, 214, 205, 30);
 				contentPanel.add(lblpassb);
@@ -163,45 +144,50 @@ public class baja_empleados extends JDialog {
 			{
 				lblcargob = new JLabel("");
 				lblcargob.setOpaque(true);
-				lblcargob.setFont(new Font("Tahoma", Font.PLAIN, 14));
+				lblcargob.setFont(new Font("Tahoma", Font.PLAIN, 18));
 				lblcargob.setBackground(new Color(50, 205, 50));
 				lblcargob.setBounds(481, 269, 205, 30);
 				contentPanel.add(lblcargob);
 			}
 			{
 				txtcod = new JTextField();
+				txtcod.setFont(new Font("Dialog", Font.PLAIN, 18));
 				txtcod.setColumns(10);
-				txtcod.setBounds(356, 87, 84, 30);
+				txtcod.setBounds(304, 113, 126, 30);
 				contentPanel.add(txtcod);
 			}
 			
 			{
 				JLabel lblCod = new JLabel("Código:");
-				lblCod.setFont(new Font("Tahoma", Font.PLAIN, 15));
-				lblCod.setBounds(263, 84, 71, 30);
+				lblCod.setFont(new Font("Dialog", Font.PLAIN, 18));
+				lblCod.setBounds(304, 82, 71, 30);
 				contentPanel.add(lblCod);
 			}
 			lblestadob = new JLabel("");
 			lblestadob.setOpaque(true);
-			lblestadob.setFont(new Font("Tahoma", Font.PLAIN, 14));
+			lblestadob.setFont(new Font("Tahoma", Font.PLAIN, 18));
 			lblestadob.setBackground(new Color(50, 205, 50));
-			lblestadob.setBounds(166, 332, 140, 30);
+			lblestadob.setBounds(129, 330, 140, 30);
 			contentPanel.add(lblestadob);
 			
 			lblfechab = new JLabel("");
 			lblfechab.setOpaque(true);
-			lblfechab.setFont(new Font("Tahoma", Font.PLAIN, 14));
+			lblfechab.setFont(new Font("Tahoma", Font.PLAIN, 18));
 			lblfechab.setBackground(new Color(50, 205, 50));
-			lblfechab.setBounds(481, 332, 205, 30);
+			lblfechab.setBounds(481, 330, 205, 30);
 			contentPanel.add(lblfechab);
 
-			JCheckBox chckEstado = new JCheckBox("");
-			chckEstado.setEnabled(false);
-			chckEstado.setBounds(118, 341, 21, 21);
+			JCheckBox chckEstado = new JCheckBox("Estado");
+			chckEstado.setHorizontalAlignment(SwingConstants.LEFT);
+			chckEstado.setForeground(new Color(0, 0, 0));
+			chckEstado.setBackground(new Color(249, 220, 92));
+			chckEstado.setFont(new Font("Dialog", Font.PLAIN, 18));
+			chckEstado.setBounds(13, 330, 110, 30);
 			contentPanel.add(chckEstado);
 			
 			{
-				JButton btnBuscar = new JButton("Buscar");
+				JButton btnBuscar = new JButton("BUSCAR");
+				btnBuscar.setForeground(new Color(128, 128, 255));
 				btnBuscar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						if (txtcod.getText().isEmpty()) {
@@ -232,13 +218,14 @@ public class baja_empleados extends JDialog {
 						}
 					}
 				});
-				btnBuscar.setFont(new Font("Tahoma", Font.PLAIN, 14));
+				btnBuscar.setFont(new Font("Tahoma", Font.BOLD, 24));
 				btnBuscar.setActionCommand("Cancel");
-				btnBuscar.setBounds(222, 393, 84, 33);
+				btnBuscar.setBounds(197, 393, 157, 60);
 				contentPanel.add(btnBuscar);
 			}
 			{
-				JButton btnBaja = new JButton("Baja");
+				JButton btnBaja = new JButton("ELIMINAR");
+				btnBaja.setForeground(new Color(255, 0, 0));
 				btnBaja.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						if (lblnomb.getText().isEmpty() || lblapelb.getText().isEmpty() || lblemailb.getText().isEmpty() || lblnumb.getText().isEmpty() || lblcargob.getText().isEmpty() || lblfechab.getText().isEmpty() || lblestadob.getText().isEmpty()) {
@@ -263,21 +250,29 @@ public class baja_empleados extends JDialog {
 						}
 					}
 				});
-				btnBaja.setFont(new Font("Tahoma", Font.PLAIN, 14));
+				btnBaja.setFont(new Font("Tahoma", Font.BOLD, 24));
 				btnBaja.setActionCommand("Cancel");
-				btnBaja.setBounds(435, 393, 84, 33);
+				btnBaja.setBounds(361, 393, 178, 60);
 				contentPanel.add(btnBaja);
 			}
 			
-			JLabel lblEstado = new JLabel("Estado:");
-			lblEstado.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			lblEstado.setBounds(48, 332, 53, 30);
-			contentPanel.add(lblEstado);
-			
 			JLabel lblFechaDeAlta = new JLabel("Fecha de alta:");
-			lblFechaDeAlta.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			lblFechaDeAlta.setBounds(377, 332, 105, 30);
+			lblFechaDeAlta.setFont(new Font("Dialog", Font.PLAIN, 18));
+			lblFechaDeAlta.setBounds(361, 330, 121, 30);
 			contentPanel.add(lblFechaDeAlta);		
+			{
+				JButton btnCerrar = new JButton("Cerrar");
+				btnCerrar.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						dispose();
+					}
+				});
+				btnCerrar.setForeground(Color.BLACK);
+				btnCerrar.setFont(new Font("Tahoma", Font.ITALIC, 24));
+				btnCerrar.setBackground(new Color(231, 24, 24));
+				btnCerrar.setBounds(588, 452, 117, 39);
+				contentPanel.add(btnCerrar);
+			}
 		}
 	}
 }
