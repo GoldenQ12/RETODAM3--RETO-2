@@ -196,6 +196,11 @@ public class consulta_empleados extends JDialog {
 		btnCerrar.setBounds(856, 401, 117, 39);
 		contentPanel.add(btnCerrar);
 		
+		JLabel lblIntroduceUnNombre = new JLabel("Introduce un nombre: ");
+		lblIntroduceUnNombre.setFont(new Font("Dialog", Font.BOLD, 18));
+		lblIntroduceUnNombre.setBounds(563, 80, 204, 39);
+		contentPanel.add(lblIntroduceUnNombre);
+		
 		cargarDatosEnTabla();
 	}
 	private void cargarDatosEnTabla() {

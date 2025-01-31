@@ -100,7 +100,7 @@ public class consulta_fichajes extends JDialog {
 
         txtbuscar = new JTextField();
         txtbuscar.setFont(new Font("Dialog", Font.PLAIN, 18));
-        txtbuscar.setBounds(651, 95, 214, 50);
+        txtbuscar.setBounds(627, 95, 214, 50);
         txtbuscar.setColumns(10);
         txtbuscar.setForeground(new Color(0, 0, 0));
         contentPanel.add(txtbuscar);
@@ -117,7 +117,7 @@ public class consulta_fichajes extends JDialog {
         });
 
         btnBuscar.setFont(new Font("Dialog", Font.PLAIN, 18));
-        btnBuscar.setBounds(875, 95, 59, 50);
+        btnBuscar.setBounds(851, 95, 59, 50);
         contentPanel.add(btnBuscar);
         
         JButton btnCerrar = new JButton("Cerrar");
@@ -131,6 +131,11 @@ public class consulta_fichajes extends JDialog {
         btnCerrar.setBackground(new Color(231, 24, 24));
         btnCerrar.setBounds(856, 416, 117, 39);
         contentPanel.add(btnCerrar);
+        
+        JLabel lblIntroduceUnNombre_1 = new JLabel("Introduce un nombre de empleado: ");
+        lblIntroduceUnNombre_1.setFont(new Font("Dialog", Font.BOLD, 18));
+        lblIntroduceUnNombre_1.setBounds(310, 95, 331, 50);
+        contentPanel.add(lblIntroduceUnNombre_1);
 
         cargarDatosEnTabla(); // Carga inicial
     }
