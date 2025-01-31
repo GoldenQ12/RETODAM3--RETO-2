@@ -62,105 +62,92 @@ public class alta_empleados extends JDialog {
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		{
-			JLabel lblGestinDeEmpleados = new JLabel("ALTA DE EMPLEADOS");
+			JLabel lblGestinDeEmpleados = new JLabel("REGISTRAR EMPLEADO");
 			lblGestinDeEmpleados.setHorizontalAlignment(SwingConstants.CENTER);
-			lblGestinDeEmpleados.setFont(new Font("Tahoma", Font.PLAIN, 24));
-			lblGestinDeEmpleados.setBounds(186, 0, 398, 87);
+			lblGestinDeEmpleados.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 38));
+			lblGestinDeEmpleados.setBounds(0, 0, 720, 87);
 			contentPanel.add(lblGestinDeEmpleados);
 		}
 		{
-			JPanel buttonPane = new JPanel();
-			buttonPane.setBounds(0, 372, 720, 40);
-			contentPanel.add(buttonPane);
-			buttonPane.setBackground(new Color(249, 220, 92));
-			buttonPane.setLayout(null);
-			{
-				JButton cancelButton = new JButton("Cerrar");
-				cancelButton.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						dispose();
-					}
-				});
-				cancelButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
-				cancelButton.setActionCommand("Cancel");
-				cancelButton.setBounds(612, 0, 84, 33);
-				buttonPane.add(cancelButton);
-			}
-		}
-		{
 			JLabel lblNombre = new JLabel("Nombre:");
-			lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			lblNombre.setFont(new Font("Dialog", Font.PLAIN, 18));
 			lblNombre.setBounds(53, 94, 71, 30);
 			contentPanel.add(lblNombre);
 		}
 		{
 			txtnom = new JTextField();
+			txtnom.setFont(new Font("Dialog", Font.PLAIN, 18));
 			txtnom.setColumns(10);
 			txtnom.setBounds(127, 97, 153, 30);
 			contentPanel.add(txtnom);
 		}
 		{
 			JLabel lblApellido = new JLabel("Apellido:");
-			lblApellido.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			lblApellido.setFont(new Font("Dialog", Font.PLAIN, 18));
 			lblApellido.setBounds(53, 154, 71, 30);
 			contentPanel.add(lblApellido);
 		}
 		{
 			txtapel = new JTextField();
+			txtapel.setFont(new Font("Dialog", Font.PLAIN, 18));
 			txtapel.setColumns(10);
 			txtapel.setBounds(127, 157, 153, 30);
 			contentPanel.add(txtapel);
 		}
 		{
 			JLabel lblEmail = new JLabel("Email:");
-			lblEmail.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			lblEmail.setFont(new Font("Dialog", Font.PLAIN, 18));
 			lblEmail.setBounds(53, 209, 63, 30);
 			contentPanel.add(lblEmail);
 		}
 		{
 			txtemail = new JTextField();
+			txtemail.setFont(new Font("Dialog", Font.PLAIN, 18));
 			txtemail.setColumns(10);
 			txtemail.setBounds(127, 212, 213, 30);
 			contentPanel.add(txtemail);
 		}
 		{
 			JLabel lblNTelfono = new JLabel("Nº Teléfono:");
-			lblNTelfono.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			lblNTelfono.setFont(new Font("Dialog", Font.PLAIN, 18));
 			lblNTelfono.setBounds(382, 100, 105, 30);
 			contentPanel.add(lblNTelfono);
 		}
 		{
 			txtnum = new JTextField();
+			txtnum.setFont(new Font("Dialog", Font.PLAIN, 18));
 			txtnum.setColumns(10);
 			txtnum.setBounds(497, 97, 213, 30);
 			contentPanel.add(txtnum);
 		}
 		{
 			JLabel lblContrasea = new JLabel("Contraseña:");
-			lblContrasea.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			lblContrasea.setFont(new Font("Dialog", Font.PLAIN, 18));
 			lblContrasea.setBounds(382, 157, 105, 30);
 			contentPanel.add(lblContrasea);
 		}
 		{
 			txtpass = new JTextField();
+			txtpass.setFont(new Font("Dialog", Font.PLAIN, 18));
 			txtpass.setColumns(10);
 			txtpass.setBounds(497, 154, 213, 30);
 			contentPanel.add(txtpass);
 		}
 		{
 			JLabel lblCargo = new JLabel("Cargo:");
-			lblCargo.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			lblCargo.setFont(new Font("Dialog", Font.PLAIN, 18));
 			lblCargo.setBounds(382, 209, 63, 30);
 			contentPanel.add(lblCargo);
 		}
 		
 		JComboBox cbCargo = new JComboBox();
-		cbCargo.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		cbCargo.setFont(new Font("Dialog", Font.PLAIN, 18));
 		cbCargo.setModel(new DefaultComboBoxModel(new String[] {"gerente", "asesor", "camarero", "bartender"}));
 		cbCargo.setBounds(497, 210, 176, 28);
 		contentPanel.add(cbCargo);
 		{
-			JButton btnAlta = new JButton("Alta");
+			JButton btnAlta = new JButton("REGISTRAR");
+			btnAlta.setForeground(new Color(128, 255, 0));
 			btnAlta.addActionListener(new ActionListener() {
 			    public void actionPerformed(ActionEvent e) {
 			        if (txtnom.getText().isEmpty() || txtapel.getText().isEmpty() || txtemail.getText().isEmpty() || cbCargo.getSelectedItem() == null || txtpass.getText().isEmpty() || txtnum.getText().isEmpty()) {
@@ -209,10 +196,23 @@ public class alta_empleados extends JDialog {
 			    }
 			});
 
-			btnAlta.setFont(new Font("Tahoma", Font.PLAIN, 14));
+			btnAlta.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 24));
 			btnAlta.setActionCommand("Cancel");
-			btnAlta.setBounds(320, 293, 84, 33);
+			btnAlta.setBounds(262, 270, 201, 75);
 			contentPanel.add(btnAlta);
+		}
+		{
+			JButton btnCerrar = new JButton("Cerrar");
+			btnCerrar.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					dispose();
+				}
+			});
+			btnCerrar.setForeground(Color.BLACK);
+			btnCerrar.setFont(new Font("Tahoma", Font.ITALIC, 24));
+			btnCerrar.setBackground(new Color(231, 24, 24));
+			btnCerrar.setBounds(591, 360, 117, 39);
+			contentPanel.add(btnCerrar);
 		}
 	}
 }

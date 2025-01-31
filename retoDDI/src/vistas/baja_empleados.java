@@ -103,49 +103,55 @@ public class baja_empleados extends JDialog {
 			
 			{
 				lblnomb = new JLabel("");
+				lblnomb.setEnabled(false);
 				lblnomb.setFont(new Font("Tahoma", Font.PLAIN, 18));
-				lblnomb.setBackground(new Color(50, 205, 50));
+				lblnomb.setBackground(new Color(98, 98, 98));
 				lblnomb.setOpaque(true);
 				lblnomb.setBounds(129, 157, 205, 30);
 				contentPanel.add(lblnomb);
 			}
 			{
 				lblapelb = new JLabel("");
+				lblapelb.setEnabled(false);
 				lblapelb.setOpaque(true);
 				lblapelb.setFont(new Font("Tahoma", Font.PLAIN, 18));
-				lblapelb.setBackground(new Color(50, 205, 50));
+				lblapelb.setBackground(new Color(98, 98, 98));
 				lblapelb.setBounds(129, 214, 205, 30);
 				contentPanel.add(lblapelb);
 			}
 			{
 				lblemailb = new JLabel("");
+				lblemailb.setEnabled(false);
 				lblemailb.setOpaque(true);
 				lblemailb.setFont(new Font("Tahoma", Font.PLAIN, 18));
-				lblemailb.setBackground(new Color(50, 205, 50));
+				lblemailb.setBackground(new Color(98, 98, 98));
 				lblemailb.setBounds(129, 269, 225, 30);
 				contentPanel.add(lblemailb);
 			}
 			{
 				lblnumb = new JLabel("");
+				lblnumb.setEnabled(false);
 				lblnumb.setOpaque(true);
 				lblnumb.setFont(new Font("Tahoma", Font.PLAIN, 18));
-				lblnumb.setBackground(new Color(50, 205, 50));
+				lblnumb.setBackground(new Color(98, 98, 98));
 				lblnumb.setBounds(481, 157, 205, 30);
 				contentPanel.add(lblnumb);
 			}
 			{
 				lblpassb = new JLabel("");
+				lblpassb.setEnabled(false);
 				lblpassb.setOpaque(true);
 				lblpassb.setFont(new Font("Tahoma", Font.PLAIN, 18));
-				lblpassb.setBackground(new Color(50, 205, 50));
+				lblpassb.setBackground(new Color(98, 98, 98));
 				lblpassb.setBounds(481, 214, 205, 30);
 				contentPanel.add(lblpassb);
 			}
 			{
 				lblcargob = new JLabel("");
+				lblcargob.setEnabled(false);
 				lblcargob.setOpaque(true);
 				lblcargob.setFont(new Font("Tahoma", Font.PLAIN, 18));
-				lblcargob.setBackground(new Color(50, 205, 50));
+				lblcargob.setBackground(new Color(98, 98, 98));
 				lblcargob.setBounds(481, 269, 205, 30);
 				contentPanel.add(lblcargob);
 			}
@@ -164,16 +170,18 @@ public class baja_empleados extends JDialog {
 				contentPanel.add(lblCod);
 			}
 			lblestadob = new JLabel("");
+			lblestadob.setEnabled(false);
 			lblestadob.setOpaque(true);
 			lblestadob.setFont(new Font("Tahoma", Font.PLAIN, 18));
-			lblestadob.setBackground(new Color(50, 205, 50));
+			lblestadob.setBackground(new Color(98, 98, 98));
 			lblestadob.setBounds(129, 330, 140, 30);
 			contentPanel.add(lblestadob);
 			
 			lblfechab = new JLabel("");
+			lblfechab.setEnabled(false);
 			lblfechab.setOpaque(true);
 			lblfechab.setFont(new Font("Tahoma", Font.PLAIN, 18));
-			lblfechab.setBackground(new Color(50, 205, 50));
+			lblfechab.setBackground(new Color(98, 98, 98));
 			lblfechab.setBounds(481, 330, 205, 30);
 			contentPanel.add(lblfechab);
 
