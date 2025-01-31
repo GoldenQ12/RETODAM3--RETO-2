@@ -7,6 +7,7 @@ import java.awt.FlowLayout;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
+import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import java.awt.Font;
 import java.awt.event.ActionListener;
@@ -25,6 +26,7 @@ import modeloDTO.empleadosDTO;
 
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
+import javax.swing.BorderFactory;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
@@ -58,31 +60,12 @@ public class consulta_empleados extends JDialog {
 		setModal(true);
 		setResizable(false);
 		setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
-		setBounds(100, 100, 999, 473);
+		setBounds(100, 100, 999, 490);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPanel.setBackground(new Color(249, 220, 92));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
-		{
-			JPanel buttonPane = new JPanel();
-			buttonPane.setBounds(0, 395, 985, 41);
-			contentPanel.add(buttonPane);
-			buttonPane.setBackground(new Color(249, 220, 92));
-			buttonPane.setLayout(null);
-			{
-				JButton cancelButton = new JButton("Cerrar");
-				cancelButton.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						dispose();
-					}
-				});
-				cancelButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
-				cancelButton.setActionCommand("Cancel");
-				cancelButton.setBounds(874, 0, 84, 33);
-				buttonPane.add(cancelButton);
-			}
-		}
 		{
 			JLabel lblModificarDeEmpleados = new JLabel("CONSULTAR EMPLEADOS");
 			lblModificarDeEmpleados.setHorizontalAlignment(SwingConstants.CENTER);
@@ -92,6 +75,7 @@ public class consulta_empleados extends JDialog {
 		}
 		
 		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		scrollPane.setBounds(10, 135, 965, 249);
 		contentPanel.add(scrollPane);
 		
@@ -103,6 +87,8 @@ public class consulta_empleados extends JDialog {
 				"Nombre", "Apellido/s", "Email", "Teléfono", "Cargo", "Fecha", "Estado", "Contraseña"
 			}
 		));
+		Font font = new Font ("Tamoha", Font.PLAIN, 18);
+		table.setFont(font);
 		scrollPane.setViewportView(table);
 		{
 			JLabel lblNewLabel = new JLabel("Ordenar por:");
@@ -197,6 +183,18 @@ public class consulta_empleados extends JDialog {
 		btnBuscar.setActionCommand("Cancel");
 		btnBuscar.setBounds(922, 80, 53, 44);
 		contentPanel.add(btnBuscar);
+		
+		JButton btnCerrar = new JButton("Cerrar");
+		btnCerrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		btnCerrar.setForeground(Color.BLACK);
+		btnCerrar.setFont(new Font("Tahoma", Font.ITALIC, 24));
+		btnCerrar.setBackground(new Color(231, 24, 24));
+		btnCerrar.setBounds(856, 401, 117, 39);
+		contentPanel.add(btnCerrar);
 		
 		cargarDatosEnTabla();
 	}

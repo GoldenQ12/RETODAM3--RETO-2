@@ -41,7 +41,7 @@ public class consulta_fichajes extends JDialog {
         setModal(true);
         setResizable(false);
         setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
-        setBounds(100, 100, 999, 473);
+        setBounds(100, 100, 999, 505);
         getContentPane().setLayout(new BorderLayout());
 
         JPanel contentPanel = new JPanel();
@@ -50,26 +50,14 @@ public class consulta_fichajes extends JDialog {
         contentPanel.setBackground(new Color(249, 220, 92));
         getContentPane().add(contentPanel, BorderLayout.CENTER);
 
-        JPanel buttonPane = new JPanel();
-        buttonPane.setLayout(null);
-        buttonPane.setBackground(new Color(249, 220, 92));
-        buttonPane.setBounds(0, 395, 985, 41);
-        contentPanel.add(buttonPane);
-
-        JButton cancelButton = new JButton("Cerrar");
-        cancelButton.addActionListener(e -> dispose());
-        cancelButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        cancelButton.setBounds(874, 0, 84, 33);
-        buttonPane.add(cancelButton);
-
-        JLabel lblConsultarFichjes = new JLabel("CONSULTAR FICHAJES");
+        JLabel lblConsultarFichjes = new JLabel("LISTA DE FICHAJES");
         lblConsultarFichjes.setHorizontalAlignment(SwingConstants.CENTER);
-        lblConsultarFichjes.setFont(new Font("Tahoma", Font.PLAIN, 24));
-        lblConsultarFichjes.setBounds(298, 10, 398, 73);
+        lblConsultarFichjes.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 38));
+        lblConsultarFichjes.setBounds(0, 0, 983, 84);
         contentPanel.add(lblConsultarFichjes);
 
         JScrollPane scrollPane = new JScrollPane();
-        scrollPane.setBounds(10, 128, 965, 249);
+        scrollPane.setBounds(8, 156, 965, 249);
         contentPanel.add(scrollPane);
 
         table = new JTable();
@@ -77,17 +65,19 @@ public class consulta_fichajes extends JDialog {
                 new Object[][] {},
                 new String[] {"Empleado", "Fecha", "Hora entrada", "Hora salida", "Modo"}
         ));
+        Font font = new Font ("Tamoha", Font.PLAIN, 18);
+		table.setFont(font);
         scrollPane.setViewportView(table);
 
         JLabel lblNewLabel = new JLabel("Ordenar por:");
-        lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        lblNewLabel.setBounds(147, 85, 94, 25);
+        lblNewLabel.setFont(new Font("Dialog", Font.PLAIN, 18));
+        lblNewLabel.setBounds(8, 95, 117, 50);
         contentPanel.add(lblNewLabel);
 
         JComboBox<String> cbOrdenar = new JComboBox<>();
         cbOrdenar.setModel(new DefaultComboBoxModel<>(new String[] {"Nombre ⬆️", "Nombre ⬇️", "Fecha ⬆️", "Fecha ⬇️"}));
-        cbOrdenar.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 14));
-        cbOrdenar.setBounds(250, 85, 169, 25);
+        cbOrdenar.setFont(new Font("Dialog", Font.PLAIN, 18));
+        cbOrdenar.setBounds(131, 95, 169, 50);
         cbOrdenar.addActionListener(e -> {
             String seleccion = (String) cbOrdenar.getSelectedItem();
             int columna = 0; // Por defecto, primera columna (Nombre)
@@ -109,42 +99,38 @@ public class consulta_fichajes extends JDialog {
         contentPanel.add(cbOrdenar);
 
         txtbuscar = new JTextField();
-        txtbuscar.setBounds(482, 82, 214, 35);
+        txtbuscar.setFont(new Font("Dialog", Font.PLAIN, 18));
+        txtbuscar.setBounds(651, 95, 214, 50);
         txtbuscar.setColumns(10);
-        txtbuscar.setText("Buscar por nombre");
-        txtbuscar.setForeground(Color.GRAY);
-        txtbuscar.addFocusListener(new FocusAdapter() {
-            @Override
-            public void focusGained(FocusEvent e) {
-                if (txtbuscar.getText().equals("Buscar por nombre")) {
-                    txtbuscar.setText("");
-                    txtbuscar.setForeground(Color.BLACK);
-                }
-            }
-
-            @Override
-            public void focusLost(FocusEvent e) {
-                if (txtbuscar.getText().isEmpty()) {
-                    txtbuscar.setText("Buscar por nombre");
-                    txtbuscar.setForeground(Color.GRAY);
-                }
-            }
-        });
+        txtbuscar.setForeground(new Color(0, 0, 0));
         contentPanel.add(txtbuscar);
 
-        JButton btnBuscar = new JButton("Buscar");
+        JButton btnBuscar = new JButton("");
+        btnBuscar.setIcon(new ImageIcon(consulta_fichajes.class.getResource("/images/searchIcon.png")));
         btnBuscar.addActionListener(e -> {
             String textoBuscar = txtbuscar.getText().trim();
             if (textoBuscar.isEmpty() || textoBuscar.equals("Buscar por nombre")) {
-                JOptionPane.showMessageDialog(null, "Por favor, ingrese un texto para buscar.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            	cargarDatosEnTabla();
                 return;
             }
             cargarDatosFiltrados("e.nombre", textoBuscar);
         });
 
-        btnBuscar.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        btnBuscar.setBounds(719, 81, 84, 33);
+        btnBuscar.setFont(new Font("Dialog", Font.PLAIN, 18));
+        btnBuscar.setBounds(875, 95, 59, 50);
         contentPanel.add(btnBuscar);
+        
+        JButton btnCerrar = new JButton("Cerrar");
+        btnCerrar.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		dispose();
+        	}
+        });
+        btnCerrar.setForeground(Color.BLACK);
+        btnCerrar.setFont(new Font("Tahoma", Font.ITALIC, 24));
+        btnCerrar.setBackground(new Color(231, 24, 24));
+        btnCerrar.setBounds(856, 416, 117, 39);
+        contentPanel.add(btnCerrar);
 
         cargarDatosEnTabla(); // Carga inicial
     }
