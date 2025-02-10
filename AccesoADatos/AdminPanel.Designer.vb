@@ -31,6 +31,8 @@ Partial Class AdminPanel
         Me.lblName = New System.Windows.Forms.Label()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Label3 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -116,11 +118,32 @@ Partial Class AdminPanel
         Me.PictureBox4.TabIndex = 52
         Me.PictureBox4.TabStop = False
         '
+        'Button3
+        '
+        Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
+        Me.Button3.Location = New System.Drawing.Point(75, 289)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(215, 170)
+        Me.Button3.TabIndex = 53
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'Label3
+        '
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(75, 194)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(215, 92)
+        Me.Label3.TabIndex = 54
+        Me.Label3.Text = "CARGAR PEDIDO"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'AdminPanel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1264, 681)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.PictureBox4)
         Me.Controls.Add(Me.lblName)
         Me.Controls.Add(Me.PictureBox3)
@@ -149,4 +172,6 @@ Partial Class AdminPanel
     Public WithEvents lblName As Label
     Public WithEvents PictureBox3 As PictureBox
     Friend WithEvents PictureBox4 As PictureBox
+    Friend WithEvents Button3 As Button
+    Friend WithEvents Label3 As Label
 End Class

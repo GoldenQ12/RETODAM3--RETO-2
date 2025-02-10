@@ -1,5 +1,7 @@
 ﻿Imports System.IO
 Imports System.Net
+Imports System.Xml
+
 Imports AccesoADatos
 Public Class TPVApp
 
@@ -383,10 +385,82 @@ Public Class TPVApp
         Next
     End Sub
 
+    Function CreateXmlElement(doc As XmlDocument, tagName As String, value As String) As XmlElement
+        Dim element As XmlElement = doc.CreateElement(tagName)
+        element.InnerText = value
+        Return element
+    End Function
+
+    Public Sub AlmacenarXML()
+        Dim ticketXml As New XmlDocument()
+        Dim root As XmlElement = ticketXml.CreateElement("TicketVenta")
+        ticketXml.AppendChild(root)
+
+        ' Crear nodo de productos
+        Dim productosNode As XmlElement = ticketXml.CreateElement("Productos")
+
+        ' Recorrer el array dinámico y agregar productos al XML
+        For Each venta In selectedItems
+            Dim productoNode As XmlElement = ticketXml.CreateElement("Producto")
+            productoNode.AppendChild(CreateXmlElement(ticketXml, "Nombre", venta.Key))
+            productoNode.AppendChild(CreateXmlElement(ticketXml, "Cantidad", venta.Value))
+            productosNode.AppendChild(productoNode)
+        Next
+
+        Dim precio_total As Double = GetPrecioTotalById()
+
+        root.AppendChild(CreateXmlElement(ticketXml, "precio_total", precio_total & "€"))
+
+        root.AppendChild(productosNode)
+
+
+        Dim savePath As String = "tickets\"
+        If Not Directory.Exists(savePath) Then
+            Directory.CreateDirectory(savePath)
+        End If
+
+        Dim fileName As String = savePath & "Ticket_" & DateTime.Now.ToString("yyyyMMdd_HHmmss") & ".xml"
+        ticketXml.Save(fileName)
+
+        Console.WriteLine("Ticket guardado en: " & fileName)
+    End Sub
+
+    Public Function GetPrecioTotalById() As Double
+        Dim query As String = "SELECT precio_final FROM LineaPedidos WHERE codped = @codped"
+        Dim queryCods As String = "SELECT COUNT(codped) AS ped_max FROM Pedidos"
+        Dim command As New SqlClient.SqlCommand(query, connection)
+        Dim command2 As New SqlClient.SqlCommand(queryCods, connection)
+        Dim codped As Integer = 0
+        Try
+            If connection.State = ConnectionState.Closed Then
+                connection.Open()
+            End If
+            Dim reader2 As SqlClient.SqlDataReader = command2.ExecuteReader()
+            Dim precio As Double = 0.00
+            If reader2.Read() Then
+                codped = reader2("ped_max")
+            End If
+
+            reader2.Close()
+            command.Parameters.AddWithValue("@codped", codped)
+            Dim reader As SqlClient.SqlDataReader = command.ExecuteReader()
+            If reader.Read() Then
+                precio = reader("precio_final")
+            End If
+            reader.Close()
+            connection.Close()
+            Return precio
+        Catch ex As Exception
+            MsgBox("Error al obtener los precios: " & ex.Message, Title:="Error")
+            Return 0.00
+
+        End Try
+    End Function
 
     Private Sub BtnRegister_Click(sender As Object, e As EventArgs) Handles btnRegister.Click
         AddToPedidos()
         AddToLineaPedidos()
+        AlmacenarXML()
         ModalHelper.Info("Mandando comanda")
     End Sub
 
@@ -555,5 +629,7 @@ Public Class TPVApp
         Comandas.Show()
     End Sub
 
+    Private Sub layoutProductos_Paint(sender As Object, e As PaintEventArgs) Handles layoutProductos.Paint
 
+    End Sub
 End Class

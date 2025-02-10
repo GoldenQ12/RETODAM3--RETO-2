@@ -1,0 +1,21 @@
+<TicketVenta>
+  <precio_total>0</precio_total>
+  <Productos>
+    <Producto>
+      <Nombre>Capuccino</Nombre>
+      <Cantidad>1</Cantidad>
+    </Producto>
+    <Producto>
+      <Nombre>Café solo</Nombre>
+      <Cantidad>1</Cantidad>
+    </Producto>
+    <Producto>
+      <Nombre>Churros con chocolate</Nombre>
+      <Cantidad>1</Cantidad>
+    </Producto>
+    <Producto>
+      <Nombre>Café con leche</Nombre>
+      <Cantidad>1</Cantidad>
+    </Producto>
+  </Productos>
+</TicketVenta>
