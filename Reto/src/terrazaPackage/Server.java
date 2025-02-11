@@ -40,7 +40,7 @@ public class Server extends UnicastRemoteObject implements Remote, InterfaceWeat
         BufferedReader reader = null;
 
         try {
-            String serverUrl = "http://localhost/uploads/weather_data.xml";
+            String serverUrl = "http://localhost/uploads/clima.xml";
 
             URL url = new URL(serverUrl);
 
