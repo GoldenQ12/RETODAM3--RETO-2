@@ -14,7 +14,7 @@ Public Class Comandas
 
     Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
         Me.Close()
-        Login.Show()
+        TPVApp.Show()
     End Sub
 
     Public Sub GetPedidos()

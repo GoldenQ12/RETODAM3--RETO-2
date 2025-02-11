@@ -82,6 +82,7 @@ Partial Class UpdateArticulo
         '
         Me.txtCantidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCantidad.Location = New System.Drawing.Point(445, 352)
+        Me.txtCantidad.Maximum = New Decimal(New Integer() {500, 0, 0, 0})
         Me.txtCantidad.Name = "txtCantidad"
         Me.txtCantidad.Size = New System.Drawing.Size(249, 29)
         Me.txtCantidad.TabIndex = 94

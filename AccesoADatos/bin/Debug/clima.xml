@@ -1,0 +1,9 @@
+<Clima>
+  <City>MAZARICOS</City>
+  <Provincia>LA CORUÑA</Provincia>
+  <MaxTemperatura>11</MaxTemperatura>
+  <MinTemperatura>8,4</MinTemperatura>
+  <TemperaturaActual>11</TemperaturaActual>
+  <TemperaturaMedia>10,07</TemperaturaMedia>
+  <Lluvia>42</Lluvia>
+</Clima>

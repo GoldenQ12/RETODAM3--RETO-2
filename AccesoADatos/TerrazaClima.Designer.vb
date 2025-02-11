@@ -22,20 +22,24 @@ Partial Class TerrazaClima
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(TerrazaClima))
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.lblFecha = New System.Windows.Forms.Label()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Button1
         '
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 72.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.Location = New System.Drawing.Point(12, 252)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(1240, 364)
+        Me.Button1.Size = New System.Drawing.Size(858, 95)
         Me.Button1.TabIndex = 4
         Me.Button1.Text = "GENERAR CLIMA"
         Me.Button1.UseVisualStyleBackColor = True
@@ -54,15 +58,15 @@ Partial Class TerrazaClima
         '
         Me.ComboBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(374, 44)
+        Me.ComboBox1.Location = New System.Drawing.Point(385, 136)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(245, 37)
+        Me.ComboBox1.Size = New System.Drawing.Size(485, 37)
         Me.ComboBox1.TabIndex = 22
         '
         'Label3
         '
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(5, 36)
+        Me.Label3.Location = New System.Drawing.Point(16, 128)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(363, 46)
         Me.Label3.TabIndex = 23
@@ -72,7 +76,7 @@ Partial Class TerrazaClima
         'Label1
         '
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(5, 98)
+        Me.Label1.Location = New System.Drawing.Point(16, 190)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(363, 46)
         Me.Label1.TabIndex = 25
@@ -83,16 +87,39 @@ Partial Class TerrazaClima
         '
         Me.ComboBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(374, 107)
+        Me.ComboBox2.Location = New System.Drawing.Point(385, 199)
         Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(245, 37)
+        Me.ComboBox2.Size = New System.Drawing.Size(485, 37)
         Me.ComboBox2.TabIndex = 24
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(873, 342)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(104, 99)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox1.TabIndex = 26
+        Me.PictureBox1.TabStop = False
+        '
+        'lblFecha
+        '
+        Me.lblFecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFecha.Location = New System.Drawing.Point(16, 30)
+        Me.lblFecha.Name = "lblFecha"
+        Me.lblFecha.Size = New System.Drawing.Size(854, 84)
+        Me.lblFecha.TabIndex = 34
+        Me.lblFecha.Text = "ESTABLECER DATOS DE CLIMA"
+        Me.lblFecha.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'TerrazaClima
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1264, 681)
+        Me.ClientSize = New System.Drawing.Size(989, 453)
+        Me.Controls.Add(Me.lblFecha)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.ComboBox2)
         Me.Controls.Add(Me.Label3)
@@ -101,6 +128,7 @@ Partial Class TerrazaClima
         Me.Controls.Add(Me.Button1)
         Me.Name = "TerrazaClima"
         Me.Text = "TerrazaClima"
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -110,4 +138,6 @@ Partial Class TerrazaClima
     Friend WithEvents Label3 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents lblFecha As Label
 End Class

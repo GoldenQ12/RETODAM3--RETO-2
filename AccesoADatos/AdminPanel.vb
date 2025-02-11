@@ -55,9 +55,6 @@ Public Class AdminPanel
                     End If
                 Loop
             End Using
-        Else
-            Console.WriteLine("File not found!")
-            Exit Sub
         End If
 
         For Each item In selectedArticles
