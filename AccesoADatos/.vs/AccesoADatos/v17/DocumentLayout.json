@@ -1,69 +1,69 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Github\\RETODAM3--RETO-2\\AccesoADatos\\",
+  "WorkspaceRootPath": "C:\\Users\\golde\\Downloads\\Github\\RETODAM3--RETO-2\\AccesoADatos\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|d:\\github\\retodam3--reto-2\\accesoadatos\\tpvapp.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|solutionrelative:tpvapp.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|d:\\github\\retodam3--reto-2\\accesoadatos\\adminpanel.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|solutionrelative:adminpanel.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|d:\\github\\retodam3--reto-2\\accesoadatos\\comandaitem.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|solutionrelative:comandaitem.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|d:\\github\\retodam3--reto-2\\accesoadatos\\comandaitem.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|solutionrelative:comandaitem.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|D:\\Github\\RETODAM3--RETO-2\\AccesoADatos\\adminpanel.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|solutionrelative:adminpanel.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|d:\\github\\retodam3--reto-2\\accesoadatos\\tpvapp.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|solutionrelative:tpvapp.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|d:\\github\\retodam3--reto-2\\accesoadatos\\addempleado.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|solutionrelative:addempleado.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|d:\\github\\retodam3--reto-2\\accesoadatos\\terrazaclima.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "AbsoluteMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|C:\\Users\\golde\\Downloads\\Github\\RETODAM3--RETO-2\\AccesoADatos\\terrazaclima.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
       "RelativeMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|solutionrelative:terrazaclima.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|D:\\Github\\RETODAM3--RETO-2\\AccesoADatos\\terrazaclima.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "AbsoluteMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|C:\\Users\\golde\\Downloads\\Github\\RETODAM3--RETO-2\\AccesoADatos\\terrazaclima.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
       "RelativeMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|solutionrelative:terrazaclima.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|d:\\github\\retodam3--reto-2\\accesoadatos\\comandas.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "AbsoluteMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|C:\\Users\\golde\\Downloads\\Github\\RETODAM3--RETO-2\\AccesoADatos\\comandaitem.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|solutionrelative:comandaitem.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|c:\\users\\golde\\downloads\\github\\retodam3--reto-2\\accesoadatos\\tpvapp.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|solutionrelative:tpvapp.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|C:\\Users\\golde\\Downloads\\Github\\RETODAM3--RETO-2\\AccesoADatos\\adminpanel.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|solutionrelative:adminpanel.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|C:\\Users\\golde\\Downloads\\Github\\RETODAM3--RETO-2\\AccesoADatos\\comandaitem.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|solutionrelative:comandaitem.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|C:\\Users\\golde\\Downloads\\Github\\RETODAM3--RETO-2\\AccesoADatos\\adminpanel.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|solutionrelative:adminpanel.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|C:\\Users\\golde\\Downloads\\Github\\RETODAM3--RETO-2\\AccesoADatos\\tpvapp.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|solutionrelative:tpvapp.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|C:\\Users\\golde\\Downloads\\Github\\RETODAM3--RETO-2\\AccesoADatos\\addempleado.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|solutionrelative:addempleado.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|C:\\Users\\golde\\Downloads\\Github\\RETODAM3--RETO-2\\AccesoADatos\\comandas.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
       "RelativeMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|solutionrelative:comandas.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|d:\\github\\retodam3--reto-2\\accesoadatos\\comandas.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "AbsoluteMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|C:\\Users\\golde\\Downloads\\Github\\RETODAM3--RETO-2\\AccesoADatos\\comandas.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
       "RelativeMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|solutionrelative:comandas.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|D:\\Github\\RETODAM3--RETO-2\\AccesoADatos\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "AbsoluteMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|C:\\Users\\golde\\Downloads\\Github\\RETODAM3--RETO-2\\AccesoADatos\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|solutionrelative:app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|D:\\Github\\RETODAM3--RETO-2\\AccesoADatos\\updatearticulo.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "AbsoluteMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|C:\\Users\\golde\\Downloads\\Github\\RETODAM3--RETO-2\\AccesoADatos\\updatearticulo.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
       "RelativeMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|solutionrelative:updatearticulo.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|d:\\github\\retodam3--reto-2\\accesoadatos\\updatearticulo.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "AbsoluteMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|C:\\Users\\golde\\Downloads\\Github\\RETODAM3--RETO-2\\AccesoADatos\\updatearticulo.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
       "RelativeMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|solutionrelative:updatearticulo.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|d:\\github\\retodam3--reto-2\\accesoadatos\\addarticulo.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "AbsoluteMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|C:\\Users\\golde\\Downloads\\Github\\RETODAM3--RETO-2\\AccesoADatos\\addarticulo.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
       "RelativeMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|solutionrelative:addarticulo.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|D:\\Github\\RETODAM3--RETO-2\\AccesoADatos\\login.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "AbsoluteMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|C:\\Users\\golde\\Downloads\\Github\\RETODAM3--RETO-2\\AccesoADatos\\login.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
       "RelativeMoniker": "D:0:0:{84423A97-5FC2-42F8-B578-0FE6EC620F9F}|AccesoADatos.vbproj|solutionrelative:login.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     }
   ],
@@ -74,102 +74,63 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 9,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "AddEmpleado.vb [Design]",
-              "DocumentMoniker": "D:\\Github\\RETODAM3--RETO-2\\AccesoADatos\\AddEmpleado.vb",
-              "RelativeDocumentMoniker": "AddEmpleado.vb",
-              "ToolTip": "D:\\Github\\RETODAM3--RETO-2\\AccesoADatos\\AddEmpleado.vb [Design]",
-              "RelativeToolTip": "AddEmpleado.vb [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-02-10T15:54:55.564Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ComandaItem.vb",
-              "DocumentMoniker": "D:\\Github\\RETODAM3--RETO-2\\AccesoADatos\\ComandaItem.vb",
-              "RelativeDocumentMoniker": "ComandaItem.vb",
-              "ToolTip": "D:\\Github\\RETODAM3--RETO-2\\AccesoADatos\\ComandaItem.vb",
-              "RelativeToolTip": "ComandaItem.vb",
-              "ViewState": "AQIAAGUAAAAAAAAAAAAcwHoAAAAPAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-02-10T15:33:25.814Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ComandaItem.vb [Design]",
-              "DocumentMoniker": "D:\\Github\\RETODAM3--RETO-2\\AccesoADatos\\ComandaItem.vb",
-              "RelativeDocumentMoniker": "ComandaItem.vb",
-              "ToolTip": "D:\\Github\\RETODAM3--RETO-2\\AccesoADatos\\ComandaItem.vb [Design]",
-              "RelativeToolTip": "ComandaItem.vb [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-02-10T15:33:25.116Z",
-              "EditorCaption": " [Design]"
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
               "Title": "Comandas.vb",
-              "DocumentMoniker": "D:\\Github\\RETODAM3--RETO-2\\AccesoADatos\\Comandas.vb",
+              "DocumentMoniker": "C:\\Users\\golde\\Downloads\\Github\\RETODAM3--RETO-2\\AccesoADatos\\Comandas.vb",
               "RelativeDocumentMoniker": "Comandas.vb",
-              "ToolTip": "D:\\Github\\RETODAM3--RETO-2\\AccesoADatos\\Comandas.vb",
+              "ToolTip": "C:\\Users\\golde\\Downloads\\Github\\RETODAM3--RETO-2\\AccesoADatos\\Comandas.vb",
               "RelativeToolTip": "Comandas.vb",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-02-10T15:33:23.837Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-10T15:33:23.837Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
               "Title": "Comandas.vb [Design]",
-              "DocumentMoniker": "D:\\Github\\RETODAM3--RETO-2\\AccesoADatos\\Comandas.vb",
+              "DocumentMoniker": "C:\\Users\\golde\\Downloads\\Github\\RETODAM3--RETO-2\\AccesoADatos\\Comandas.vb",
               "RelativeDocumentMoniker": "Comandas.vb",
               "ToolTip": "D:\\Github\\RETODAM3--RETO-2\\AccesoADatos\\Comandas.vb [Design]",
-              "RelativeToolTip": "Comandas.vb [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-02-10T15:33:22.855Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AdminPanel.vb",
-              "DocumentMoniker": "D:\\Github\\RETODAM3--RETO-2\\AccesoADatos\\AdminPanel.vb",
-              "RelativeDocumentMoniker": "AdminPanel.vb",
-              "ToolTip": "D:\\Github\\RETODAM3--RETO-2\\AccesoADatos\\AdminPanel.vb",
-              "RelativeToolTip": "AdminPanel.vb",
-              "ViewState": "AQIAADEAAAAAAAAAAAAqwE4AAAA+AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-02-10T15:29:18.381Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-10T15:33:22.855Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "AdminPanel.vb [Design]",
-              "DocumentMoniker": "D:\\Github\\RETODAM3--RETO-2\\AccesoADatos\\AdminPanel.vb",
+              "Title": "AdminPanel.vb",
+              "DocumentMoniker": "C:\\Users\\golde\\Downloads\\Github\\RETODAM3--RETO-2\\AccesoADatos\\AdminPanel.vb",
               "RelativeDocumentMoniker": "AdminPanel.vb",
-              "ToolTip": "D:\\Github\\RETODAM3--RETO-2\\AccesoADatos\\AdminPanel.vb [Design]",
-              "RelativeToolTip": "AdminPanel.vb [Design]",
+              "ToolTip": "C:\\Users\\golde\\Downloads\\Github\\RETODAM3--RETO-2\\AccesoADatos\\AdminPanel.vb",
+              "RelativeToolTip": "AdminPanel.vb",
+              "ViewState": "AQIAADEAAAAAAAAAAAAqwE4AAAA+AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-01-13T06:46:17.515Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-02-10T15:29:18.381Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
+              "Title": "AdminPanel.vb [Design]",
+              "DocumentMoniker": "C:\\Users\\golde\\Downloads\\Github\\RETODAM3--RETO-2\\AccesoADatos\\AdminPanel.vb",
+              "RelativeDocumentMoniker": "AdminPanel.vb",
+              "ToolTip": "D:\\Github\\RETODAM3--RETO-2\\AccesoADatos\\AdminPanel.vb [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-01-13T06:46:17.515Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "TPVApp.vb [Design]",
-              "DocumentMoniker": "D:\\Github\\RETODAM3--RETO-2\\AccesoADatos\\TPVApp.vb",
+              "DocumentMoniker": "C:\\Users\\golde\\Downloads\\Github\\RETODAM3--RETO-2\\AccesoADatos\\TPVApp.vb",
               "RelativeDocumentMoniker": "TPVApp.vb",
-              "ToolTip": "D:\\Github\\RETODAM3--RETO-2\\AccesoADatos\\TPVApp.vb [Design]",
+              "ToolTip": "C:\\Users\\golde\\Downloads\\Github\\RETODAM3--RETO-2\\AccesoADatos\\TPVApp.vb [Design]",
               "RelativeToolTip": "TPVApp.vb [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2025-02-10T15:13:51.462Z",
@@ -177,13 +138,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "TPVApp.vb",
-              "DocumentMoniker": "D:\\Github\\RETODAM3--RETO-2\\AccesoADatos\\TPVApp.vb",
+              "DocumentMoniker": "C:\\Users\\golde\\Downloads\\Github\\RETODAM3--RETO-2\\AccesoADatos\\TPVApp.vb",
               "RelativeDocumentMoniker": "TPVApp.vb",
-              "ToolTip": "D:\\Github\\RETODAM3--RETO-2\\AccesoADatos\\TPVApp.vb",
+              "ToolTip": "C:\\Users\\golde\\Downloads\\Github\\RETODAM3--RETO-2\\AccesoADatos\\TPVApp.vb",
               "RelativeToolTip": "TPVApp.vb",
-              "ViewState": "AQIAAKgBAAAAAAAAAAAswLgBAAAQAAAA",
+              "ViewState": "AgIAAJMBAAAAAAAAAAAswLUBAABHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2025-02-10T15:12:08.651Z",
               "EditorCaption": ""
@@ -192,88 +153,118 @@
               "$type": "Document",
               "DocumentIndex": 11,
               "Title": "App.config",
-              "DocumentMoniker": "D:\\Github\\RETODAM3--RETO-2\\AccesoADatos\\App.config",
+              "DocumentMoniker": "C:\\Users\\golde\\Downloads\\Github\\RETODAM3--RETO-2\\AccesoADatos\\App.config",
               "RelativeDocumentMoniker": "App.config",
-              "ToolTip": "D:\\Github\\RETODAM3--RETO-2\\AccesoADatos\\App.config",
+              "ToolTip": "C:\\Users\\golde\\Downloads\\Github\\RETODAM3--RETO-2\\AccesoADatos\\App.config",
               "RelativeToolTip": "App.config",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
               "WhenOpened": "2025-01-19T09:46:19.127Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "TerrazaClima.vb [Design]",
-              "DocumentMoniker": "D:\\Github\\RETODAM3--RETO-2\\AccesoADatos\\TerrazaClima.vb",
+              "DocumentIndex": 1,
+              "Title": "TerrazaClima.vb [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\golde\\Downloads\\Github\\RETODAM3--RETO-2\\AccesoADatos\\TerrazaClima.vb",
               "RelativeDocumentMoniker": "TerrazaClima.vb",
-              "ToolTip": "D:\\Github\\RETODAM3--RETO-2\\AccesoADatos\\TerrazaClima.vb [Design]",
-              "RelativeToolTip": "TerrazaClima.vb [Design]",
+              "ToolTip": "C:\\Users\\golde\\Downloads\\Github\\RETODAM3--RETO-2\\AccesoADatos\\TerrazaClima.vb [Dise\u00F1o]",
+              "RelativeToolTip": "TerrazaClima.vb [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2025-01-13T06:47:31.168Z",
-              "EditorCaption": " [Design]"
+              "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 0,
               "Title": "TerrazaClima.vb",
-              "DocumentMoniker": "D:\\Github\\RETODAM3--RETO-2\\AccesoADatos\\TerrazaClima.vb",
+              "DocumentMoniker": "C:\\Users\\golde\\Downloads\\Github\\RETODAM3--RETO-2\\AccesoADatos\\TerrazaClima.vb",
               "RelativeDocumentMoniker": "TerrazaClima.vb",
-              "ToolTip": "D:\\Github\\RETODAM3--RETO-2\\AccesoADatos\\TerrazaClima.vb",
+              "ToolTip": "C:\\Users\\golde\\Downloads\\Github\\RETODAM3--RETO-2\\AccesoADatos\\TerrazaClima.vb",
               "RelativeToolTip": "TerrazaClima.vb",
-              "ViewState": "AQIAACwAAAAAAAAAAAAowDwAAAAAAAAA",
+              "ViewState": "AgIAAFgAAAAAAAAAAAAewG0AAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2025-01-13T06:49:02.177Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ComandaItem.vb [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\golde\\Downloads\\Github\\RETODAM3--RETO-2\\AccesoADatos\\ComandaItem.vb",
+              "RelativeDocumentMoniker": "ComandaItem.vb",
+              "ToolTip": "C:\\Users\\golde\\Downloads\\Github\\RETODAM3--RETO-2\\AccesoADatos\\ComandaItem.vb [Dise\u00F1o]",
+              "RelativeToolTip": "ComandaItem.vb [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-02-10T15:33:25.116Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ComandaItem.vb",
+              "DocumentMoniker": "C:\\Users\\golde\\Downloads\\Github\\RETODAM3--RETO-2\\AccesoADatos\\ComandaItem.vb",
+              "RelativeDocumentMoniker": "ComandaItem.vb",
+              "ToolTip": "C:\\Users\\golde\\Downloads\\Github\\RETODAM3--RETO-2\\AccesoADatos\\ComandaItem.vb",
+              "RelativeToolTip": "ComandaItem.vb",
+              "ViewState": "AgIAAGUAAAAAAAAAAAAcwHoAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-02-10T15:33:25.814Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AddEmpleado.vb [Design]",
+              "DocumentMoniker": "C:\\Users\\golde\\Downloads\\Github\\RETODAM3--RETO-2\\AccesoADatos\\AddEmpleado.vb",
+              "RelativeDocumentMoniker": "AddEmpleado.vb",
+              "ToolTip": "D:\\Github\\RETODAM3--RETO-2\\AccesoADatos\\AddEmpleado.vb [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-02-10T15:54:55.564Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 12,
               "Title": "UpdateArticulo.vb [Design]",
-              "DocumentMoniker": "D:\\Github\\RETODAM3--RETO-2\\AccesoADatos\\UpdateArticulo.vb",
+              "DocumentMoniker": "C:\\Users\\golde\\Downloads\\Github\\RETODAM3--RETO-2\\AccesoADatos\\UpdateArticulo.vb",
               "RelativeDocumentMoniker": "UpdateArticulo.vb",
               "ToolTip": "D:\\Github\\RETODAM3--RETO-2\\AccesoADatos\\UpdateArticulo.vb [Design]",
-              "RelativeToolTip": "UpdateArticulo.vb [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-01-19T09:48:09.601Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-01-19T09:48:09.601Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 13,
               "Title": "UpdateArticulo.vb",
-              "DocumentMoniker": "D:\\Github\\RETODAM3--RETO-2\\AccesoADatos\\UpdateArticulo.vb",
+              "DocumentMoniker": "C:\\Users\\golde\\Downloads\\Github\\RETODAM3--RETO-2\\AccesoADatos\\UpdateArticulo.vb",
               "RelativeDocumentMoniker": "UpdateArticulo.vb",
-              "ToolTip": "D:\\Github\\RETODAM3--RETO-2\\AccesoADatos\\UpdateArticulo.vb",
+              "ToolTip": "C:\\Users\\golde\\Downloads\\Github\\RETODAM3--RETO-2\\AccesoADatos\\UpdateArticulo.vb",
               "RelativeToolTip": "UpdateArticulo.vb",
               "ViewState": "AQIAACMAAAAAAAAAAAAwwEEAAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-02-10T15:30:21.438Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-10T15:30:21.438Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 14,
               "Title": "AddArticulo.vb [Design]",
-              "DocumentMoniker": "D:\\Github\\RETODAM3--RETO-2\\AccesoADatos\\AddArticulo.vb",
+              "DocumentMoniker": "C:\\Users\\golde\\Downloads\\Github\\RETODAM3--RETO-2\\AccesoADatos\\AddArticulo.vb",
               "RelativeDocumentMoniker": "AddArticulo.vb",
               "ToolTip": "D:\\Github\\RETODAM3--RETO-2\\AccesoADatos\\AddArticulo.vb [Design]",
-              "RelativeToolTip": "AddArticulo.vb [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-02-10T15:26:49.394Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-02-10T15:26:49.394Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 15,
-              "Title": "Login.vb [Design]",
-              "DocumentMoniker": "D:\\Github\\RETODAM3--RETO-2\\AccesoADatos\\Login.vb",
+              "Title": "Login.vb [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\golde\\Downloads\\Github\\RETODAM3--RETO-2\\AccesoADatos\\Login.vb",
               "RelativeDocumentMoniker": "Login.vb",
-              "ToolTip": "D:\\Github\\RETODAM3--RETO-2\\AccesoADatos\\Login.vb [Design]",
-              "RelativeToolTip": "Login.vb [Design]",
+              "ToolTip": "C:\\Users\\golde\\Downloads\\Github\\RETODAM3--RETO-2\\AccesoADatos\\Login.vb [Dise\u00F1o]",
+              "RelativeToolTip": "Login.vb [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2025-01-13T06:46:29.782Z",
-              "EditorCaption": " [Design]"
+              "EditorCaption": " [Dise\u00F1o]"
             }
           ]
         }
